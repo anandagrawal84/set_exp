@@ -12,7 +12,9 @@
             </intent-filter>
         </activity>
 
-    </application>
+    <activity android:name=".CreateEvent"></activity>
+    <activity android:name=".AddExpenses"></activity>
+</application>
 
 
 </manifest> 
