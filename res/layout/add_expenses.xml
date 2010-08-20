@@ -16,6 +16,16 @@
 			android:layout_height="wrap_content" 
 			android:layout_weight="1"/>
 	</LinearLayout>
+	<LinearLayout>		
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:text="Amount" />
+		<EditText android:id="@+id/amount" 
+		  android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:layout_weight="1"
+			android:numeric="decimal"/>
+	</LinearLayout>
 
 
 	<Button android:id="@+id/confirm" 
