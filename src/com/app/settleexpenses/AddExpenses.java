@@ -1,42 +1,45 @@
 package com.app.settleexpenses;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.app.settleexpenses.domain.Expense;
+
 public class AddExpenses extends Activity {
 	
-	private EditText mTitleText;
+	private EditText expenseTitleText;
+	private EditText expenseAmount;
+	
+	private final Activity currentActivity = this;
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_expenses);
 
-        mTitleText = (EditText) findViewById(R.id.title);
+        expenseTitleText = (EditText) findViewById(R.id.title);
+        expenseAmount = (EditText) findViewById(R.id.amount);
 
         Button confirmButton = (Button) findViewById(R.id.confirm);
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String title = extras.getString(DbAdapter.EVENT_TITLE);
-            setTitle("Add Expense for " + title);
-        }
+        final long eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
+        String title = getIntent().getStringExtra(DbAdapter.EVENT_TITLE);
+        setTitle("Add Expense for " + title);
 
         
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putString(DbAdapter.EVENT_TITLE, mTitleText.getText().toString());
-
-                Intent mIntent = new Intent();
-                mIntent.putExtras(bundle);
-                setResult(RESULT_OK, mIntent);
-                finish();
+            	DbAdapter dbAdapter = new DbAdapter(currentActivity);
+            	dbAdapter.open();
+            	
+            	float amount = Float.parseFloat(expenseAmount.getText().toString());
+				Expense expense = new Expense(expenseTitleText.getText().toString(), amount, 
+            			eventId, null, null);
+            	dbAdapter.createExpense(expense);
             }
 
         });

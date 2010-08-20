@@ -1,5 +1,7 @@
 package com.app.settleexpenses;
 
+import com.app.settleexpenses.domain.Expense;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -10,6 +12,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DbAdapter {
 
 	public static String EVENT_TITLE = "title";
+	public static String EVENT_ID = "_id";
+	
+	public static String EXPENSE_TITLE = "title";
+	public static String EXPENSE_BY = "paid_by";
+	public static String EXPENSE_AMOUNT = "amount";
+	public static String EXPENSE_EVENT_ID = "event_id";
+	
 	private static class DatabaseHelper extends SQLiteOpenHelper {
 		
 		
@@ -58,16 +67,20 @@ public class DbAdapter {
 
     public long createEvent(String title) {
         ContentValues initialValues = new ContentValues();
-        initialValues.put("title", title);
+        initialValues.put(EVENT_TITLE, title);
         return mDb.insert("events", null, initialValues);
     }
 
     public boolean deleteEvent(long rowId) {
-        return mDb.delete("events", "_id = " + rowId, null) > 0;
+        return mDb.delete("events", EVENT_ID + " = " + rowId, null) > 0;
     }
     
     public Cursor fetchAllEvents() {
-        return mDb.query("events", new String[] {"_id", "title"}, null, null, null, null, null);
+        return mDb.query("events", new String[] {EVENT_ID, EVENT_TITLE}, null, null, null, null, null);
     }
+
+	public long createExpense(Expense expense) {
+        return mDb.insert("expenses", null, expense.toContentValues());
+	}
 
 }

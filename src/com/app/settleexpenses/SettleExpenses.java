@@ -12,7 +12,6 @@ import android.widget.SimpleCursorAdapter;
 public class SettleExpenses extends ListActivity {
 	public static final int INSERT_ID = Menu.FIRST;
 	private static final int ACTIVITY_CREATE=0;
-	private static final int ACTIVITY_ADD_EXPENSE=0;
 	
 	private DbAdapter mDbHelper;
 
@@ -58,17 +57,11 @@ public class SettleExpenses extends ListActivity {
     
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+    	if (intent == null) {
+    		fillData();
+    		return;
+    	}
         super.onActivityResult(requestCode, resultCode, intent);
-        Bundle extras = intent.getExtras();
-        switch(requestCode) {
-            case ACTIVITY_CREATE:
-                String title = extras.getString(DbAdapter.EVENT_TITLE);
-                mDbHelper.createEvent(title);
-                fillData();
-                startActivityForResult(new Intent(this, AddExpenses.class), ACTIVITY_ADD_EXPENSE);
-                break;
-            
-        }
     }
 
 }

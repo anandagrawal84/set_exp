@@ -10,38 +10,31 @@ import android.widget.EditText;
 
 public class CreateEvent extends Activity {
 
-	private EditText mTitleText;
-
+	private EditText titleText;
+	private static final int ACTIVITY_ADD_EXPENSE=0;
+	private final Activity currentActivity = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_event);
         setTitle("Create Event");
 
-        mTitleText = (EditText) findViewById(R.id.title);
+        titleText = (EditText) findViewById(R.id.title);
 
         Button confirmButton = (Button) findViewById(R.id.confirm);
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String title = extras.getString(DbAdapter.EVENT_TITLE);
-
-            if (title != null) {
-                mTitleText.setText(title);
-            }
-        }
-
-        
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putString(DbAdapter.EVENT_TITLE, mTitleText.getText().toString());
-
-                Intent mIntent = new Intent();
-                mIntent.putExtras(bundle);
-                setResult(RESULT_OK, mIntent);
-                finish();
+            	DbAdapter dbAdapter = new DbAdapter(currentActivity);
+                dbAdapter.open();
+                String title = titleText.getText().toString();
+				long eventId = dbAdapter.createEvent(title);
+                
+                Intent intent = new Intent(currentActivity, AddExpenses.class);
+                intent.putExtra(DbAdapter.EVENT_ID, eventId);
+                intent.putExtra(DbAdapter.EVENT_TITLE, title);
+				startActivityForResult(intent, ACTIVITY_ADD_EXPENSE);
             }
 
         });
