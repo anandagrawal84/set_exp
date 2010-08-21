@@ -31,9 +31,6 @@ public class ParticipantsPicker extends Activity {
         
         eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
         
-        Intent intent = new Intent(Intent.ACTION_PICK, People.CONTENT_URI);
-		startActivityForResult(intent, PICK_CONTACT);
-        
         Button addParticipantButton = (Button) findViewById(R.id.add_participant);
         Button continueButton = (Button) findViewById(R.id.continueButton);
         addParticipantButton.setOnClickListener(new OnClickListener() {
