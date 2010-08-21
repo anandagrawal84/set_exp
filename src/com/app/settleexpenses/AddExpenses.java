@@ -26,8 +26,8 @@ public class AddExpenses extends Activity {
         Button confirmButton = (Button) findViewById(R.id.confirm);
 
         final long eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
-        String title = getIntent().getStringExtra(DbAdapter.EVENT_TITLE);
-        setTitle("Add Expense for " + title);
+        
+        setTitle("Add Expenses");
 
         
         confirmButton.setOnClickListener(new View.OnClickListener() {

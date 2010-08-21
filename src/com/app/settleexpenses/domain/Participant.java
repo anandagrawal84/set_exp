@@ -1,5 +1,6 @@
 package com.app.settleexpenses.domain;
 
+
 public class Participant {
 
 	private int id;
@@ -11,5 +12,5 @@ public class Participant {
 	public int getId() {
 		return id;
 	}
-	
+
 }

@@ -1,6 +1,5 @@
 package com.app.settleexpenses;
 
-
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -15,7 +14,6 @@ public class SettleExpenses extends ListActivity {
 	
 	private DbAdapter mDbHelper;
 
-	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
     	super.onCreate(savedInstanceState);
@@ -29,7 +27,6 @@ public class SettleExpenses extends ListActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
     	boolean result = super.onCreateOptionsMenu(menu);
         menu.add(0, INSERT_ID, 0, R.string.menu_insert);
-        menu.add(0, 44, 1, "select participant");
         return result;
     }
 
@@ -39,9 +36,6 @@ public class SettleExpenses extends ListActivity {
         case INSERT_ID:
             startActivityForResult(new Intent(this, CreateEvent.class), ACTIVITY_CREATE);
             return true;
-        case 44:
-        	startActivityForResult(new Intent(this, ParticipantsPicker.class), 1);
-        	return true;
         }
     	
         return super.onOptionsItemSelected(item);
