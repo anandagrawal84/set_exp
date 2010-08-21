@@ -29,6 +29,7 @@ public class SettleExpenses extends ListActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
     	boolean result = super.onCreateOptionsMenu(menu);
         menu.add(0, INSERT_ID, 0, R.string.menu_insert);
+        menu.add(0, 44, 1, "select participant");
         return result;
     }
 
@@ -38,7 +39,11 @@ public class SettleExpenses extends ListActivity {
         case INSERT_ID:
             startActivityForResult(new Intent(this, CreateEvent.class), ACTIVITY_CREATE);
             return true;
+        case 44:
+        	startActivityForResult(new Intent(this, ParticipantsPicker.class), 1);
+        	return true;
         }
+    	
         return super.onOptionsItemSelected(item);
     }
         
@@ -49,7 +54,6 @@ public class SettleExpenses extends ListActivity {
         String[] from = new String[] { DbAdapter.EVENT_TITLE };
         int[] to = new int[] { R.id.text1 };
         
-        // Now create an array adapter and set it to display using our row
         SimpleCursorAdapter notes =
             new SimpleCursorAdapter(this, R.layout.event_row, c, from, to);
         setListAdapter(notes);

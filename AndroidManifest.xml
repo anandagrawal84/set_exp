@@ -14,7 +14,10 @@
 
     <activity android:name=".CreateEvent"></activity>
     <activity android:name=".AddExpenses"></activity>
+    <activity android:name=".ParticipantsPicker"></activity>
+    
 </application>
 
+<uses-permission android:name="android.permission.READ_CONTACTS"/>
 
 </manifest> 

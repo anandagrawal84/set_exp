@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+
+	<ListView android:id="@+id/list" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" />
+
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true">
+
+		<Button android:id="@+id/add_participant"
+			android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:text="Add Participants" android:layout_alignParentBottom="true" />
+		<Button android:id="@+id/continueButton" android:layout_height="wrap_content"
+			android:layout_width="wrap_content" android:text="Continue"
+			android:layout_alignParentBottom="true" />
+	</LinearLayout>
+</RelativeLayout>
