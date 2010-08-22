@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Contacts.People;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -16,9 +16,9 @@ import android.widget.ListView;
 
 public class ParticipantsPicker extends Activity {
 
-	private static final String PARTICIPANT_IDS = "PARTICIPANTS_IDS";
-	private static final int PICK_CONTACT = 0;
-	private final ArrayList<String> contacts = new ArrayList<String>();
+    public static final String PARTICIPANT_IDS = "PARTICIPANTS_IDS";
+    private static final int PICK_CONTACT = 0;
+    private final ArrayList<String> contacts = new ArrayList<String>();
 	private final ArrayList<String> contactIds = new ArrayList<String>();
 	private final Activity currentActivity = this;
 	private long eventId = -1;
@@ -35,7 +35,7 @@ public class ParticipantsPicker extends Activity {
         Button continueButton = (Button) findViewById(R.id.continueButton);
         addParticipantButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent(Intent.ACTION_PICK, People.CONTENT_URI);
+				Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
 				startActivityForResult(intent, PICK_CONTACT);
 			}
 		});
@@ -60,11 +60,12 @@ public class ParticipantsPicker extends Activity {
 	        Uri contactData = data.getData();
 	        Cursor c =  managedQuery(contactData, null, null, null, null);
 	        if (c.moveToFirst()) {
-	          String name = c.getString(c.getColumnIndexOrThrow(People.NAME));
+	          String name = c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME));
+	          String id = c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
 	          ListView v = (ListView) findViewById(R.id.list);
 
 	          contacts.add(name);
-	          contactIds.add(name);
+	          contactIds.add(id);
 	          v.setAdapter(new ArrayAdapter<String>(this,R.layout.event_row , contacts));
 	        }
 	      }
