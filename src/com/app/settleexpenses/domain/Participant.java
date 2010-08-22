@@ -3,13 +3,13 @@ package com.app.settleexpenses.domain;
 
 public class Participant {
 
-	private int id;
+	private String id;
 
-	public Participant(int id) {
+	public Participant(String id) {
 		this.id = id;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 

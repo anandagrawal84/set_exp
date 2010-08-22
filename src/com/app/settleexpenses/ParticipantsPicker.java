@@ -16,7 +16,6 @@ import android.widget.ListView;
 
 public class ParticipantsPicker extends Activity {
 
-    public static final String PARTICIPANT_IDS = "PARTICIPANTS_IDS";
     private static final int PICK_CONTACT = 0;
     private final ArrayList<String> contacts = new ArrayList<String>();
 	private final ArrayList<String> contactIds = new ArrayList<String>();
@@ -43,7 +42,7 @@ public class ParticipantsPicker extends Activity {
         continueButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent addExpensesIntent = new Intent(currentActivity, AddExpenses.class);
-				addExpensesIntent.putExtra(PARTICIPANT_IDS, contactIds);
+				addExpensesIntent.putExtra(DbAdapter.PARTICIPANT_IDS, contactIds);
 				addExpensesIntent.putExtra(DbAdapter.EVENT_ID, eventId);
 				startActivityForResult(addExpensesIntent, 1);
 			}

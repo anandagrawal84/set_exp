@@ -3,12 +3,9 @@ package com.app.settleexpenses;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-
-import android.widget.ListView;
+import android.widget.*;
 import com.app.settleexpenses.domain.Expense;
+import com.app.settleexpenses.domain.Participant;
 
 import java.util.ArrayList;
 
@@ -23,6 +20,7 @@ public class AddExpenses extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_expenses);
+        setTitle("Add Expenses");
 
         expenseTitleText = (EditText) findViewById(R.id.title);
         expenseAmount = (EditText) findViewById(R.id.amount);
@@ -30,13 +28,15 @@ public class AddExpenses extends Activity {
         Button confirmButton = (Button) findViewById(R.id.confirm);
 
         final long eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
-        final ArrayList<String> participantIds = getIntent().getStringArrayListExtra(ParticipantsPicker.PARTICIPANT_IDS);
-
-
-        setTitle("Add Expenses");
+        final ArrayList<String> allParticipantIds = getIntent().getStringArrayListExtra(DbAdapter.PARTICIPANT_IDS);
 
         ListView v = (ListView) findViewById(R.id.participant_selector);
-        v.setAdapter(new ArrayAdapter<String>(this, R.layout.event_row, participantIds));
+        v.setAdapter(new ArrayAdapter<String>(this, R.layout.event_row, allParticipantIds));
+
+        final Spinner paidBy = (Spinner) findViewById(R.id.paid_by);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, allParticipantIds);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        paidBy.setAdapter(arrayAdapter);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
@@ -45,9 +45,16 @@ public class AddExpenses extends Activity {
                 dbAdapter.open();
 
                 float amount = Float.parseFloat(expenseAmount.getText().toString());
+                ArrayList<Participant> participants = new ArrayList<Participant>();
+                for (String participantId : allParticipantIds) {
+                    participants.add(new Participant(participantId));
+                }
                 Expense expense = new Expense(expenseTitleText.getText().toString(), amount,
-                        eventId, null, null);
+                        eventId, new Participant(allParticipantIds.get(paidBy.getSelectedItemPosition())), participants);
+
                 dbAdapter.createExpense(expense);
+                Toast toast = Toast.makeText(currentActivity, "Expense Created Successfully.", 2);
+                toast.show();
             }
 
         });

@@ -4,6 +4,8 @@ import com.app.settleexpenses.DbAdapter;
 
 import android.content.ContentValues;
 
+import java.util.ArrayList;
+
 public class Expense {
 
 	private String title;
@@ -14,25 +16,27 @@ public class Expense {
 	private Participant paidBy;
 	
 	@SuppressWarnings("unused")
-	private Participant[] participant;
+	private ArrayList<Participant> participants;
 	
-	public Expense(String title, float amount, long eventId, Participant paidBy, Participant[] participant) {
+	public Expense(String title, float amount, long eventId, Participant paidBy, ArrayList<Participant> participants) {
 		this.title = title;
 		this.amount = amount;
 		this.eventId = eventId;
 		this.paidBy = paidBy;
-		this.participant = participant;
+		this.participants = participants;
 	}
+
+    public ArrayList<Participant> getParticipants() {
+        return participants;
+    }
 
 	public ContentValues toContentValues() {
 		ContentValues values = new ContentValues();
         values.put(DbAdapter.EXPENSE_TITLE, title);
         values.put(DbAdapter.EXPENSE_EVENT_ID, eventId);
-        values.put(DbAdapter.EXPENSE_BY, "");
+        values.put(DbAdapter.EXPENSE_BY, paidBy.getId());
         values.put(DbAdapter.EXPENSE_AMOUNT, amount);
         return values;
 	}
-	
-	
 	
 }
