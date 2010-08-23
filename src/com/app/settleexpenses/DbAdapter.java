@@ -6,8 +6,11 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import com.app.settleexpenses.domain.Event;
 import com.app.settleexpenses.domain.Expense;
 import com.app.settleexpenses.domain.Participant;
+
+import java.util.ArrayList;
 
 public class DbAdapter {
 
@@ -46,6 +49,10 @@ public class DbAdapter {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+//            db.execSQL("DROP TABLE IF EXISTS events");
+//            db.execSQL("DROP TABLE IF EXISTS expenses");
+//            db.execSQL("DROP TABLE IF EXISTS participants");
+            onCreate(db);
         }
     }
 
@@ -82,13 +89,42 @@ public class DbAdapter {
         return mDb.query("events", new String[]{EVENT_ID, EVENT_TITLE}, null, null, null, null, null);
     }
 
+    public Event GetEventById(long eventId) {
+        Cursor cursor = mDb.query("events", null, EVENT_ID + "=" + eventId, null, null, null, null);
+        cursor.moveToFirst();
+        return new Event(cursor.getInt(0), cursor.getString(1), getExpensesByEventId(eventId));
+    }
+
+    private ArrayList<Expense> getExpensesByEventId(long eventId) {
+        ArrayList<Expense> expenses = new ArrayList<Expense>();
+        Cursor cursor = mDb.query("expenses", null, EXPENSE_EVENT_ID + "=" + eventId, null, null, null, null);
+        cursor.moveToFirst();
+        do {
+            Participant paidBy = new Participant(cursor.getString(1));
+            ArrayList<Participant> participants = getParticipantsByExpenseId(cursor.getInt(0));
+            expenses.add(new Expense(cursor.getString(4), cursor.getFloat(2), eventId, paidBy, participants));
+        } while (cursor.moveToNext());
+        return expenses;
+    }
+
+    private ArrayList<Participant> getParticipantsByExpenseId(long expenseId) {
+        ArrayList<Participant> participants = new ArrayList<Participant>();
+        Cursor cursor = mDb.query("participants", null, PARTICIPANT_EXPENSE_ID + "=" + expenseId, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            do {
+                participants.add(new Participant(cursor.getString(1)));
+            } while (cursor.moveToNext());
+        }
+        return participants;
+    }
+
     public long createExpense(Expense expense) {
         long expenseId = mDb.insert("expenses", null, expense.toContentValues());
         for (Participant participant : expense.getParticipants()) {
             ContentValues contentValues = new ContentValues();
             contentValues.put(PARTICIPANT_EXPENSE_ID, expenseId);
             contentValues.put(PARTICIPANT_ID, participant.getId());
-            mDb.insert("expense", null, contentValues);
+            mDb.insert("participants", null, contentValues);
         }
         return expenseId;
     }
