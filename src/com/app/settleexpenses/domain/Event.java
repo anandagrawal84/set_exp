@@ -41,7 +41,7 @@ public class Event {
     private ArrayList<Settlement> payToOneOf(ArrayList<ParticipantContribution> participantContributions, ParticipantContribution payer) {
         ArrayList<Settlement> settlements = new ArrayList<Settlement>();
         for (ParticipantContribution participantContribution : participantContributions) {
-            if (!participantContribution.isPayer()) {
+            if (!participantContribution.isPayer() && !participantContribution.isSettled()) {
                 float absoluteSettlementAmount = Math.abs(payer.getContribution());
 
                 if (!participantContribution.canAcceptFullAmount(payer.getContribution())) {

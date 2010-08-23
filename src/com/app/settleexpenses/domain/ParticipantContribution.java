@@ -17,6 +17,10 @@ public class ParticipantContribution {
         return contribution < 0;
     }
 
+    public boolean isSettled() {
+        return ((int)contribution == 0);
+    }
+
     public float getContribution() {
         return contribution;
     }
