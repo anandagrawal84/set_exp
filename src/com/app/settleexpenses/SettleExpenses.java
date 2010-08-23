@@ -72,4 +72,10 @@ public class SettleExpenses extends ListActivity {
         super.onActivityResult(requestCode, resultCode, intent);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mDbHelper.close();
+    }
+
 }

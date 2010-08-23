@@ -53,6 +53,7 @@ public class AddExpenses extends Activity {
                         eventId, new Participant(allParticipantIds.get(paidBy.getSelectedItemPosition())), participants);
 
                 dbAdapter.createExpense(expense);
+                dbAdapter.close();
                 Toast toast = Toast.makeText(currentActivity, "Expense Created Successfully.", 2);
                 toast.show();
             }

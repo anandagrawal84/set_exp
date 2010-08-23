@@ -23,6 +23,7 @@ public class ShowSettlements extends ListActivity {
             Log.d("Settlement", settlement.getPaidBy().getId() + " pays $" + settlement.getAmount() + " to " + settlement.getToPay().getId());
             arrayAdapter.add(settlement.getPaidBy().getId() + " pays $" + settlement.getAmount() + " to " + settlement.getToPay().getId());
         }
+        mDbHelper.close();
         setListAdapter(arrayAdapter);
     }
 }
