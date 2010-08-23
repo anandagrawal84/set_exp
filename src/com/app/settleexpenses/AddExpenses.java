@@ -2,6 +2,7 @@ package com.app.settleexpenses;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.*;
 import com.app.settleexpenses.domain.Expense;
@@ -30,8 +31,10 @@ public class AddExpenses extends Activity {
         final long eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
         final ArrayList<String> allParticipantIds = getIntent().getStringArrayListExtra(DbAdapter.PARTICIPANT_IDS);
 
-        ListView v = (ListView) findViewById(R.id.participant_selector);
-        v.setAdapter(new ArrayAdapter<String>(this, R.layout.event_row, allParticipantIds));
+        final ListView participantSelectorView = (ListView) findViewById(R.id.participant_selector);
+        participantSelectorView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, allParticipantIds));
+        participantSelectorView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        participantSelectorView.setSelected(true);
 
         final Spinner paidBy = (Spinner) findViewById(R.id.paid_by);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, allParticipantIds);
@@ -45,10 +48,8 @@ public class AddExpenses extends Activity {
                 dbAdapter.open();
 
                 float amount = Float.parseFloat(expenseAmount.getText().toString());
-                ArrayList<Participant> participants = new ArrayList<Participant>();
-                for (String participantId : allParticipantIds) {
-                    participants.add(new Participant(participantId));
-                }
+                ArrayList<Participant> participants = selectedParticipants(participantSelectorView, allParticipantIds);
+
                 Expense expense = new Expense(expenseTitleText.getText().toString(), amount,
                         eventId, new Participant(allParticipantIds.get(paidBy.getSelectedItemPosition())), participants);
 
@@ -59,5 +60,16 @@ public class AddExpenses extends Activity {
             }
 
         });
+    }
+
+    private ArrayList<Participant> selectedParticipants(ListView participantSelectorView, ArrayList<String> allParticipantIds) {
+        ArrayList<Participant> participants = new ArrayList<Participant>();
+        SparseBooleanArray checkedItemPositions = participantSelectorView.getCheckedItemPositions();
+        for (int i = 0; i < checkedItemPositions.size(); i++) {
+            if (checkedItemPositions.valueAt(i)) {
+                participants.add(new Participant(allParticipantIds.get(i)));
+            }
+        }
+        return participants;
     }
 }
