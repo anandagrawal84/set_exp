@@ -1,7 +1,9 @@
 package com.app.settleexpenses;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 public class SettleExpenses extends ListActivity {
     public static final int INSERT_ID = Menu.FIRST;
@@ -52,15 +55,35 @@ public class SettleExpenses extends ListActivity {
         String[] from = new String[]{DbAdapter.EVENT_TITLE};
         int[] to = new int[]{R.id.text1};
 
-            SimpleCursorAdapter notes = new SimpleCursorAdapter(this, R.layout.event_row, c, from, to);
-            setListAdapter(notes);
+        SimpleCursorAdapter notes = new SimpleCursorAdapter(this, R.layout.event_row, c, from, to);
+        setListAdapter(notes);
     }
 
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long eventId) {
-        Intent addExpensesIntent = new Intent(currentActivity, ShowSettlements.class);
-        addExpensesIntent.putExtra(DbAdapter.EVENT_ID, eventId);
-        startActivityForResult(addExpensesIntent, 1);
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        final CharSequence[] items = {"Show final settlements", "Delete Event"};
+        final long eventId  = id;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Events");
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int item) {
+                switch (item) {
+                    case 0:
+                        Intent addExpensesIntent = new Intent(currentActivity, ShowSettlements.class);
+                        addExpensesIntent.putExtra(DbAdapter.EVENT_ID, eventId);
+                        startActivityForResult(addExpensesIntent, 1);
+                        break;
+                    case 1:
+                        mDbHelper.deleteEvent(eventId);
+                        Toast.makeText(getApplicationContext(), "Event is deleted", Toast.LENGTH_SHORT).show();
+                        fillData();
+                        break;
+                }
+
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     @Override
