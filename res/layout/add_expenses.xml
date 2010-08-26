@@ -36,23 +36,27 @@
                   android:layout_height="wrap_content"
                   android:text="Paid by"/>
         <Spinner android:id="@+id/paid_by"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_weight="1"/>
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="1"/>
     </LinearLayout>
 
     <RelativeLayout android:layout_width="wrap_content"
                     xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_height="wrap_content" android:layout_centerHorizontal="true">
-        
+
         <ListView android:id="@+id/participant_selector" android:layout_width="wrap_content"
                   android:layout_height="wrap_content"/>
 
-        </RelativeLayout>
+    </RelativeLayout>
 
 
     <Button android:id="@+id/confirm"
             android:text="Create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    <Button android:id="@+id/calculate"
+            android:text="Calculate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

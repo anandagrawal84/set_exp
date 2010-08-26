@@ -1,6 +1,7 @@
 package com.app.settleexpenses;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
 import android.view.View;
@@ -29,6 +30,7 @@ public class AddExpenses extends Activity {
         expenseAmount = (EditText) findViewById(R.id.amount);
 
         Button confirmButton = (Button) findViewById(R.id.confirm);
+        Button calculateButton = (Button) findViewById(R.id.calculate);
 
         final long eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
         final List<Participant> allParticipants = contacts.find(getIntent().getStringArrayListExtra(DbAdapter.PARTICIPANT_IDS));
@@ -47,7 +49,7 @@ public class AddExpenses extends Activity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                DbAdapter dbAdapter = new DbAdapter(currentActivity, new ContactsAdapter(currentActivity));
+                DbAdapter dbAdapter = new DbAdapter(view.getContext(), new ContactsAdapter(currentActivity));
                 dbAdapter.open();
 
                 float amount = Float.parseFloat(expenseAmount.getText().toString());
@@ -58,12 +60,21 @@ public class AddExpenses extends Activity {
 
                 dbAdapter.createExpense(expense);
                 dbAdapter.close();
-                Toast toast = Toast.makeText(currentActivity, "Expense Created Successfully.", 2);
+                Toast toast = Toast.makeText(view.getContext(), "Expense Created Successfully.", 2);
                 toast.show();
                 finish();
                 startActivity(currentActivity.getIntent());
             }
 
+        });
+
+        calculateButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent addExpensesIntent = new Intent(view.getContext(), ShowSettlements.class);
+                addExpensesIntent.putExtra(DbAdapter.EVENT_ID, eventId);
+                startActivityForResult(addExpensesIntent, 1);
+            }
         });
     }
 
