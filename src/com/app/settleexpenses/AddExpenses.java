@@ -60,6 +60,8 @@ public class AddExpenses extends Activity {
                 dbAdapter.close();
                 Toast toast = Toast.makeText(currentActivity, "Expense Created Successfully.", 2);
                 toast.show();
+                finish();
+                startActivity(currentActivity.getIntent());
             }
 
         });
