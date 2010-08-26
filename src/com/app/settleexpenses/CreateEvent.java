@@ -26,7 +26,7 @@ public class CreateEvent extends Activity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-            	DbAdapter dbAdapter = new DbAdapter(currentActivity);
+            	DbAdapter dbAdapter = new DbAdapter(currentActivity, new ContactsAdapter(currentActivity));
                 dbAdapter.open();
                 String title = titleText.getText().toString();
 				long eventId = dbAdapter.createEvent(title);

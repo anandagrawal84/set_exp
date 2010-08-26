@@ -25,7 +25,7 @@ public class SettleExpenses extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.events_list);
-        mDbHelper = new DbAdapter(this);
+        mDbHelper = new DbAdapter(this, new ContactsAdapter(this));
         mDbHelper.open();
         fillData();
     }

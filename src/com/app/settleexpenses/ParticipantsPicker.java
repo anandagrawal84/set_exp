@@ -3,6 +3,7 @@ package com.app.settleexpenses;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.ContentProviderClient;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -29,7 +30,7 @@ public class ParticipantsPicker extends Activity {
         setTitle("Pick Participants");
         
         eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
-        
+
         Button addParticipantButton = (Button) findViewById(R.id.add_participant);
         Button continueButton = (Button) findViewById(R.id.continueButton);
         addParticipantButton.setOnClickListener(new OnClickListener() {

@@ -14,14 +14,14 @@ public class ShowSettlements extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_settlements);
-        DbAdapter mDbHelper = new DbAdapter(this);
+        DbAdapter mDbHelper = new DbAdapter(this, new ContactsAdapter(this));
         mDbHelper.open();
         Event event = mDbHelper.GetEventById(getIntent().getLongExtra(DbAdapter.EVENT_ID, -1));
         List<Settlement> settlements = event.calculateSettlements();
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.event_row);
         for (Settlement settlement : settlements) {
             Log.d("Settlement", settlement.getPaidBy().getId() + " pays $" + settlement.getAmount() + " to " + settlement.getToPay().getId());
-            arrayAdapter.add(settlement.getPaidBy().getId() + " pays $" + settlement.getAmount() + " to " + settlement.getToPay().getId());
+            arrayAdapter.add(settlement.getPaidBy().getName() + " pays $" + settlement.getAmount() + " to " + settlement.getToPay().getName());
         }
         mDbHelper.close();
         setListAdapter(arrayAdapter);

@@ -5,13 +5,20 @@ public class Participant {
 
 	private String id;
 
-	public Participant(String id) {
-		this.id = id;
-	}
+    private String name;
 
-	public String getId() {
-		return id;
-	}
+    public Participant(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -4,9 +4,16 @@
     <option name="TOOL_WINDOW_LOG_LEVEL" value="DEBUG" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="804e5c0d-f2f4-450a-b3f8-7d2cef935e28" name="Default" comment="">
+    <list default="true" readonly="true" id="804e5c0d-f2f4-450a-b3f8-7d2cef935e28" name="Default" comment="anand - adding a option to delete an event">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/ShowSettlements.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/ShowSettlements.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/AddExpenses.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/AddExpenses.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/ParticipantsPicker.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/ParticipantsPicker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/DbAdapter.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/DbAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/domain/Participant.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/domain/Participant.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/ContactsAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/SettleExpenses.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/SettleExpenses.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java" />
     </list>
     <ignored path="SettleExpenses.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,13 +78,29 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SettleExpenses.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/SettleExpenses.java">
+      <file leaf-file-name="Participant.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/domain/Participant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="32" selection-start="2128" selection-end="2128" vertical-scroll-proportion="0.33658537">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="9" column="19" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddExpenses.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/AddExpenses.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="105" selection-start="2203" selection-end="2203" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Expense.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/domain/Expense.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="13" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,7 +108,52 @@
       <file leaf-file-name="DbAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/DbAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="67" selection-start="2895" selection-end="2895" vertical-scroll-proportion="0.0">
+            <state line="104" column="74" selection-start="3817" selection-end="3817" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParticipantsPicker.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ParticipantsPicker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="62" column="105" selection-start="2270" selection-end="2345" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreateEvent.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="67" selection-start="885" selection-end="923" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShowSettlements.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ShowSettlements.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="12" selection-start="1058" selection-end="1058" vertical-scroll-proportion="0.638404">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SettleExpenses.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/SettleExpenses.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="21" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContactsAdapter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ContactsAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="19" selection-start="661" selection-end="661" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -107,22 +175,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/ParticipantsPicker.java" />
         <option value="$PROJECT_DIR$/res/layout/add_expenses.xml" />
         <option value="$PROJECT_DIR$/src/com/app/settleexpenses/domain/SettlementCalculator.java" />
         <option value="$PROJECT_DIR$/src/com/app/settleexpenses/domain/Settlement.java" />
         <option value="$PROJECT_DIR$/res/layout/show_settlements.xml" />
         <option value="$PROJECT_DIR$/src/com/app/settleexpenses/domain/Expense.java" />
-        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/domain/Participant.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/ShowSettlements.java" />
-        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java" />
         <option value="$PROJECT_DIR$/src/com/app/settleexpenses/domain/ParticipantContribution.java" />
         <option value="$PROJECT_DIR$/src/com/app/settleexpenses/domain/Event.java" />
-        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/AddExpenses.java" />
+        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/domain/Participant.java" />
+        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/ParticipantsPicker.java" />
+        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/ContactsAdapter.java" />
         <option value="$PROJECT_DIR$/src/com/app/settleexpenses/DbAdapter.java" />
+        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java" />
         <option value="$PROJECT_DIR$/src/com/app/settleexpenses/SettleExpenses.java" />
+        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/AddExpenses.java" />
+        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/ShowSettlements.java" />
       </list>
     </option>
   </component>
@@ -161,77 +229,11 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SettleExpenses" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android 2.2 Platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SettleExpenses" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android 2.2 Platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SettleExpenses" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android 2.2 Platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="SettleExpenses" />
@@ -567,20 +569,20 @@
     <frame x="10" y="22" width="1420" height="822" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3586006" sideWeight="0.66239315" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32763532" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39941692" sideWeight="0.66096866" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3469388" sideWeight="0.66239315" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51282054" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39941692" sideWeight="0.66096866" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.510699" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -600,7 +602,7 @@
     <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="anand - pick participants for an expense" />
+    <option name="LAST_COMMIT_MESSAGE" value="anand - adding a option to delete an event" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -618,128 +620,113 @@
     <MESSAGE value="anand - close connection" />
     <MESSAGE value="anand - fixing settled amt" />
     <MESSAGE value="anand - pick participants for an expense" />
+    <MESSAGE value="anand - adding a option to delete an event" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/layout/event_row.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Developer/SDKs/android-sdk-mac_86/platforms/android-8/android.jar!/android/database/Cursor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="12" selection-start="315" selection-end="315" vertical-scroll-proportion="0.33206108">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/events_list.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="46" selection-start="198" selection-end="328" vertical-scroll-proportion="0.29787233">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/add_expenses.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.3846154">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.3846154" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/show_settlements.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="97" selection-start="347" selection-end="347" vertical-scroll-proportion="0.30769232">
-          <folding />
-        </state>
+        <state line="8" column="97" selection-start="347" selection-end="347" vertical-scroll-proportion="0.30769232" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="50" selection-start="756" selection-end="756" vertical-scroll-proportion="0.39203677">
+        <state line="16" column="50" selection-start="756" selection-end="756" vertical-scroll-proportion="0.39203677" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/domain/ParticipantContribution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="38" selection-start="547" selection-end="547" vertical-scroll-proportion="0.48545176" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/domain/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="95" selection-start="744" selection-end="744" vertical-scroll-proportion="0.6797386" />
+      </provider>
+    </entry>
+    <entry file="jar:///Developer/SDKs/android-sdk-mac_86/platforms/android-8/android.jar!/android/content/ContentProviderClient.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="35" selection-start="282" selection-end="282" vertical-scroll-proportion="0.20846905">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java">
+    <entry file="jar:///Developer/SDKs/android-sdk-mac_86/platforms/android-8/android.jar!/android/app/Activity.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="13" selection-start="222" selection-end="222" vertical-scroll-proportion="0.096582465">
+        <state line="80" column="53" selection-start="3445" selection-end="3457" vertical-scroll-proportion="0.33224756">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ParticipantsPicker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="34" selection-start="2085" selection-end="2089" vertical-scroll-proportion="0.4769688">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ShowSettlements.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="36" selection-start="1232" selection-end="1232" vertical-scroll-proportion="0.63221884">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/domain/ParticipantContribution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="38" selection-start="547" selection-end="547" vertical-scroll-proportion="0.48545176">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/domain/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="95" selection-start="744" selection-end="744" vertical-scroll-proportion="0.6797386">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/domain/Participant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="11" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/AddExpenses.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="52" selection-start="1565" selection-end="1565" vertical-scroll-proportion="0.8047619">
+        <state line="62" column="105" selection-start="2270" selection-end="2345" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/domain/Expense.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="162" selection-end="162" vertical-scroll-proportion="-0.3800475">
+        <state line="7" column="13" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/DbAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="67" selection-start="2895" selection-end="2895" vertical-scroll-proportion="0.0">
+        <state line="104" column="74" selection-start="3817" selection-end="3817" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/domain/Participant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="19" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ContactsAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="19" selection-start="661" selection-end="661" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="67" selection-start="885" selection-end="923" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/SettleExpenses.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="32" selection-start="2128" selection-end="2128" vertical-scroll-proportion="0.33658537">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="20" column="21" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/AddExpenses.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="105" selection-start="2203" selection-end="2203" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ShowSettlements.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="12" selection-start="1058" selection-end="1058" vertical-scroll-proportion="0.638404">
+          <folding />
         </state>
       </provider>
     </entry>

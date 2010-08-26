@@ -59,9 +59,11 @@ public class DbAdapter {
     private Context mCtx;
     private com.app.settleexpenses.DbAdapter.DatabaseHelper mDbHelper;
     private SQLiteDatabase mDb;
+    ContactsAdapter contactsProvider;
 
-    public DbAdapter(Context ctx) {
+    public DbAdapter(Context ctx, ContactsAdapter contactsProvider) {
         this.mCtx = ctx;
+        this.contactsProvider = contactsProvider;
     }
 
     public DbAdapter open() throws SQLException {
@@ -100,7 +102,7 @@ public class DbAdapter {
         Cursor cursor = mDb.query("expenses", null, EXPENSE_EVENT_ID + "=" + eventId, null, null, null, null);
         cursor.moveToFirst();
         do {
-            Participant paidBy = new Participant(cursor.getString(1));
+            Participant paidBy = contactsProvider.find(cursor.getString(1));
             ArrayList<Participant> participants = getParticipantsByExpenseId(cursor.getInt(0));
             expenses.add(new Expense(cursor.getString(4), cursor.getFloat(2), eventId, paidBy, participants));
         } while (cursor.moveToNext());
@@ -112,7 +114,7 @@ public class DbAdapter {
         Cursor cursor = mDb.query("participants", null, PARTICIPANT_EXPENSE_ID + "=" + expenseId, null, null, null, null);
         if (cursor.moveToFirst()) {
             do {
-                participants.add(new Participant(cursor.getString(1)));
+                participants.add(contactsProvider.find(cursor.getString(1)));
             } while (cursor.moveToNext());
         }
         return participants;

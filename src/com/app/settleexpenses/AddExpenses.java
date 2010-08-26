@@ -9,6 +9,7 @@ import com.app.settleexpenses.domain.Expense;
 import com.app.settleexpenses.domain.Participant;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AddExpenses extends Activity {
 
@@ -16,6 +17,7 @@ public class AddExpenses extends Activity {
     private EditText expenseAmount;
 
     private final Activity currentActivity = this;
+    private final ContactsAdapter contacts = new ContactsAdapter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,29 +31,30 @@ public class AddExpenses extends Activity {
         Button confirmButton = (Button) findViewById(R.id.confirm);
 
         final long eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
-        final ArrayList<String> allParticipantIds = getIntent().getStringArrayListExtra(DbAdapter.PARTICIPANT_IDS);
+        final List<Participant> allParticipants = contacts.find(getIntent().getStringArrayListExtra(DbAdapter.PARTICIPANT_IDS));
+        final ArrayList<String> allParticipantNames = participantNames(allParticipants);
 
         final ListView participantSelectorView = (ListView) findViewById(R.id.participant_selector);
-        participantSelectorView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, allParticipantIds));
+        participantSelectorView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, allParticipantNames));
         participantSelectorView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         participantSelectorView.setSelected(true);
 
         final Spinner paidBy = (Spinner) findViewById(R.id.paid_by);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, allParticipantIds);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, allParticipantNames);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         paidBy.setAdapter(arrayAdapter);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                DbAdapter dbAdapter = new DbAdapter(currentActivity);
+                DbAdapter dbAdapter = new DbAdapter(currentActivity, new ContactsAdapter(currentActivity));
                 dbAdapter.open();
 
                 float amount = Float.parseFloat(expenseAmount.getText().toString());
-                ArrayList<Participant> participants = selectedParticipants(participantSelectorView, allParticipantIds);
+                ArrayList<Participant> participants = selectedParticipants(participantSelectorView, allParticipants);
 
                 Expense expense = new Expense(expenseTitleText.getText().toString(), amount,
-                        eventId, new Participant(allParticipantIds.get(paidBy.getSelectedItemPosition())), participants);
+                        eventId, allParticipants.get(paidBy.getSelectedItemPosition()), participants);
 
                 dbAdapter.createExpense(expense);
                 dbAdapter.close();
@@ -62,12 +65,20 @@ public class AddExpenses extends Activity {
         });
     }
 
-    private ArrayList<Participant> selectedParticipants(ListView participantSelectorView, ArrayList<String> allParticipantIds) {
+    private ArrayList<String> participantNames(List<Participant> allParticipants) {
+        ArrayList<String> result = new ArrayList<String>();
+        for (Participant participant : allParticipants) {
+            result.add(participant.getName());
+        }
+        return result;
+    }
+
+    private ArrayList<Participant> selectedParticipants(ListView participantSelectorView, List<Participant> allParticipants) {
         ArrayList<Participant> participants = new ArrayList<Participant>();
         SparseBooleanArray checkedItemPositions = participantSelectorView.getCheckedItemPositions();
         for (int i = 0; i < checkedItemPositions.size(); i++) {
             if (checkedItemPositions.valueAt(i)) {
-                participants.add(new Participant(allParticipantIds.get(i)));
+                participants.add(allParticipants.get(i));
             }
         }
         return participants;
