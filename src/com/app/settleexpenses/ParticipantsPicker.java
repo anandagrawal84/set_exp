@@ -1,9 +1,6 @@
 package com.app.settleexpenses;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
-import android.content.ContentProviderClient;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -14,6 +11,8 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class ParticipantsPicker extends Activity {
 

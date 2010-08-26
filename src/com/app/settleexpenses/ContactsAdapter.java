@@ -1,7 +1,6 @@
 package com.app.settleexpenses;
 
 import android.app.Activity;
-import android.content.Context;
 import android.database.Cursor;
 import android.provider.ContactsContract;
 import com.app.settleexpenses.domain.Participant;
@@ -26,7 +25,7 @@ public class ContactsAdapter {
 
     public List<Participant> find(List<String> ids) {
         ArrayList<Participant> participants = new ArrayList<Participant>();
-        for(String id : ids) {
+        for (String id : ids) {
             participants.add(find(id));
         }
         return participants;
