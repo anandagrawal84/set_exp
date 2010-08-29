@@ -18,7 +18,7 @@ public class ShowSettlements extends ListActivity {
         mDbHelper.open();
         Event event = mDbHelper.GetEventById(getIntent().getLongExtra(DbAdapter.EVENT_ID, -1));
         List<Settlement> settlements = event.calculateSettlements();
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.event_row);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.settlement);
         for (Settlement settlement : settlements) {
             Log.d("Settlement", settlement.getPaidBy().getId() + " pays $" + settlement.getAmount() + " to " + settlement.getToPay().getId());
             arrayAdapter.add(settlement.getPaidBy().getName() + " pays $" + settlement.getAmount() + " to " + settlement.getToPay().getName());

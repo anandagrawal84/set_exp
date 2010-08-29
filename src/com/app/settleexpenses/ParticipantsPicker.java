@@ -65,7 +65,7 @@ public class ParticipantsPicker extends Activity {
 
 	          contacts.add(name);
 	          contactIds.add(id);
-	          v.setAdapter(new ArrayAdapter<String>(this,R.layout.event_row , contacts));
+	          v.setAdapter(new ArrayAdapter<String>(this,R.layout.participant , contacts));
 	        }
 	      }
 	      break;
