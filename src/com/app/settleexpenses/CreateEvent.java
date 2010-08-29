@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class CreateEvent extends Activity {
@@ -26,9 +27,16 @@ public class CreateEvent extends Activity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-            	DbAdapter dbAdapter = new DbAdapter(currentActivity, new ContactsAdapter(currentActivity));
-                dbAdapter.open();
                 String title = titleText.getText().toString();
+                if(title!= null && title.trim().length() == 0) {
+                    Toast toast = Toast.makeText(currentActivity, "Please enter event name", Toast.LENGTH_LONG);
+                    toast.show();
+                    return;
+                }
+
+                DbAdapter dbAdapter = new DbAdapter(currentActivity, new ContactsAdapter(currentActivity));
+                dbAdapter.open();
+
 				long eventId = dbAdapter.createEvent(title);
                 
                 Intent intent = new Intent(currentActivity, ParticipantsPicker.class);

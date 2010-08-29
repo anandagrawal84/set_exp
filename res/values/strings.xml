@@ -4,4 +4,5 @@
     <string name="app_name">SettleExpenses</string>
     <string name="no_events">No Events Yet!!</string>
     <string name="menu_insert">Add new Event</string>
+    <string name="hint_required_field">(Required)</string>
 </resources>

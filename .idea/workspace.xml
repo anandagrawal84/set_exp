@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="804e5c0d-f2f4-450a-b3f8-7d2cef935e28" name="Default" comment="anand - adding add events button at list header">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/event_row.xml" afterPath="$PROJECT_DIR$/res/layout/event_row.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/create_event.xml" afterPath="$PROJECT_DIR$/res/layout/create_event.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/event_add_button.xml" afterPath="$PROJECT_DIR$/res/layout/event_add_button.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/customshape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/SettleExpenses.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/SettleExpenses.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java" />
     </list>
     <ignored path="SettleExpenses.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,17 +74,6 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SettleExpenses.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/SettleExpenses.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="19" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.3325">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="customshape.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/customshape.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -97,34 +86,79 @@
       <file leaf-file-name="event_row.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/event_row.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="4" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0">
+            <state line="9" column="15" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add_expenses.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/add_expenses.xml">
+      <file leaf-file-name="participant.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/participant.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="50" selection-start="2640" selection-end="2640" vertical-scroll-proportion="0.0">
+            <state line="4" column="42" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_event.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="settlement.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/settlement.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="31" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreateEvent.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="60" selection-start="973" selection-end="973" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="events_list.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/events_list.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="40" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="participants_picker.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/participants_picker.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="33" selection-start="762" selection-end="776" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParticipantsPicker.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ParticipantsPicker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="67" column="77" selection-start="2589" selection-end="2589" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create_event.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/res/layout/create_event.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="37" selection-start="611" selection-end="611" vertical-scroll-proportion="0.0">
+            <state line="19" column="12" selection-start="709" selection-end="709" vertical-scroll-proportion="0.7307692">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="event_add_button.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/event_add_button.xml">
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="22" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0">
+            <state line="6" column="48" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -144,14 +178,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/domain/Participant.java" />
-        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/ParticipantsPicker.java" />
-        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/DbAdapter.java" />
-        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java" />
-        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/ShowSettlements.java" />
         <option value="$PROJECT_DIR$/src/com/app/settleexpenses/ContactsAdapter.java" />
         <option value="$PROJECT_DIR$/res/layout/participants_picker.xml" />
-        <option value="$PROJECT_DIR$/res/layout/create_event.xml" />
         <option value="$PROJECT_DIR$/res/layout/add_expenses.xml" />
         <option value="$PROJECT_DIR$/src/com/app/settleexpenses/listeners/ShowSettlementsListener.java" />
         <option value="$PROJECT_DIR$/src/com/app/settleexpenses/AddExpenses.java" />
@@ -160,6 +188,12 @@
         <option value="$PROJECT_DIR$/res/layout/events_list.xml" />
         <option value="$PROJECT_DIR$/res/layout/event_row.xml" />
         <option value="$PROJECT_DIR$/src/com/app/settleexpenses/SettleExpenses.java" />
+        <option value="$PROJECT_DIR$/res/layout/participant.xml" />
+        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/ParticipantsPicker.java" />
+        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/ShowSettlements.java" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java" />
+        <option value="$PROJECT_DIR$/res/layout/create_event.xml" />
       </list>
     </option>
   </component>
@@ -341,18 +375,18 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="921" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="924" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="110" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="127" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="130" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="114" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="131" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="134" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="121" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="125" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="options.lastSelected" value="project.propLocalVCS" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -362,10 +396,15 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="recentsLimit" value="5" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="160" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="925" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="164" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="164" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="928" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="168" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res/layout" />
+    </key>
   </component>
   <component name="RunManager" selected="Android Application.SettleExpenses">
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -541,13 +580,13 @@
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32763532" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32763532" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39941692" sideWeight="0.66096866" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3760933" sideWeight="0.66096866" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3760933" sideWeight="0.66239315" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.508547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -571,7 +610,7 @@
     <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="anand - adding add events button at list header" />
+    <option name="LAST_COMMIT_MESSAGE" value="anand - fixing participant and settlement view" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -595,46 +634,12 @@
     <MESSAGE value="anand - add expense clears the form" />
     <MESSAGE value="anand - adding calculate button in add expense" />
     <MESSAGE value="anand - adding add events button at list header" />
+    <MESSAGE value="anand - fixing participant and settlement view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/layout/participants_picker.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="33" selection-start="762" selection-end="776" vertical-scroll-proportion="-6.9615383" />
-      </provider>
-    </entry>
-    <entry file="jar:///Developer/SDKs/android-sdk-mac_86/platforms/android-8/android.jar!/android/app/Activity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="58" selection-start="194" selection-end="195" vertical-scroll-proportion="0.11480363" />
-      </provider>
-    </entry>
-    <entry file="jar:///Developer/SDKs/android-sdk-mac_86/platforms/android-8/android.jar!/android/app/ListActivity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="55" selection-start="191" selection-end="191" vertical-scroll-proportion="0.16976127" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="29" selection-start="238" selection-end="249" vertical-scroll-proportion="0.18348624" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ParticipantsPicker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="61" selection-start="1538" selection-end="1794" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ContactsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="253" selection-end="253" vertical-scroll-proportion="-0.06413302" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/AddExpenses.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="29" selection-start="3075" selection-end="3075" vertical-scroll-proportion="0.6840855" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/event_add_button.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="22" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0">
@@ -642,30 +647,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/customshape.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="41" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/create_event.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="37" selection-start="611" selection-end="611" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/add_expenses.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="60" column="50" selection-start="2640" selection-end="2640" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/events_list.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="40" selection-start="140" selection-end="152" vertical-scroll-proportion="0.07692308">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/show_settlements.xml">
@@ -682,19 +666,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/event_row.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/SettleExpenses.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="4" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0">
+        <state line="34" column="19" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/customshape.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="41" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/SettleExpenses.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/participants_picker.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="19" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.3325">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="16" column="33" selection-start="762" selection-end="776" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/event_row.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="15" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ParticipantsPicker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="77" selection-start="2589" selection-end="2589" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/participant.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="42" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ShowSettlements.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="94" selection-start="849" selection-end="849" vertical-scroll-proportion="0.54593176">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/settlement.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="31" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/events_list.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="40" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="48" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="60" selection-start="973" selection-end="973" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/create_event.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="12" selection-start="709" selection-end="709" vertical-scroll-proportion="0.7307692">
+          <folding />
         </state>
       </provider>
     </entry>
