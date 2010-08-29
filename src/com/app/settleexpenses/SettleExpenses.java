@@ -7,15 +7,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 public class SettleExpenses extends ListActivity {
-    public static final int INSERT_ID = Menu.FIRST;
     private static final int ACTIVITY_CREATE = 0;
 
     private Activity currentActivity = this;
@@ -25,27 +22,18 @@ public class SettleExpenses extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.events_list);
+
+        View header = getLayoutInflater().inflate(R.layout.event_add_button, getListView(), false);
+        getListView().addHeaderView(header);
+
         mDbHelper = new DbAdapter(this, new ContactsAdapter(this));
         mDbHelper.open();
         fillData();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        boolean result = super.onCreateOptionsMenu(menu);
-        menu.add(0, INSERT_ID, 0, R.string.menu_insert);
-        return result;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case INSERT_ID:
-                startActivityForResult(new Intent(this, CreateEvent.class), ACTIVITY_CREATE);
-                return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public boolean onAddEventClick(View view) {
+        startActivityForResult(new Intent(this, CreateEvent.class), ACTIVITY_CREATE);
+        return true;
     }
 
     private void fillData() {
@@ -62,7 +50,7 @@ public class SettleExpenses extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         final CharSequence[] items = {"Show final settlements", "Delete Event"};
-        final long eventId  = id;
+        final long eventId = id;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Events");
         builder.setItems(items, new DialogInterface.OnClickListener() {
