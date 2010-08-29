@@ -49,6 +49,12 @@ public class AddExpenses extends Activity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
+                if(isInValid(expenseTitleText.getText().toString()) || isInValid(expenseAmount.getText().toString())){
+                    Toast toast = Toast.makeText(currentActivity, "Please complete the required fields", Toast.LENGTH_LONG);
+                    toast.show();
+                    return;
+                }
+
                 DbAdapter dbAdapter = new DbAdapter(view.getContext(), new ContactsAdapter(currentActivity));
                 dbAdapter.open();
 
@@ -76,6 +82,10 @@ public class AddExpenses extends Activity {
                 startActivityForResult(addExpensesIntent, 1);
             }
         });
+    }
+
+    private boolean isInValid(String value){
+        return value != null && value.trim().length() == 0;
     }
 
     private ArrayList<String> participantNames(List<Participant> allParticipants) {
