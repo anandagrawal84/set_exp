@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -41,6 +42,11 @@ public class ParticipantsPicker extends Activity {
         
         continueButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+                if(contactIds.size() < 2){
+                    Toast toast = Toast.makeText(currentActivity, "Please add participants", Toast.LENGTH_LONG);
+                    toast.show();
+                    return;
+                }
 				Intent addExpensesIntent = new Intent(currentActivity, AddExpenses.class);
 				addExpensesIntent.putExtra(DbAdapter.PARTICIPANT_IDS, contactIds);
 				addExpensesIntent.putExtra(DbAdapter.EVENT_ID, eventId);
