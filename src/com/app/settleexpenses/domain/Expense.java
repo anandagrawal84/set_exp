@@ -30,12 +30,21 @@ public class Expense {
         return paidBy;
     }
 
+    public float getAmount() {
+        return amount;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+
     public float contributionAmount(Participant participant) {
         float contributionAmount = amount / participants.size();
         if (paidBy.getId().equals(participant.getId())) {
             return amount - contributionAmount;
         }
-        return contributionAmount * -1; 
+        return contributionAmount * -1;
     }
 
     public ContentValues toContentValues() {

@@ -8,6 +8,7 @@ public class Event {
     private int id;
 
     private String title;
+
     private List<Expense> expenses;
 
     public Event(int id, String title, List<Expense> expenses) {
@@ -18,6 +19,10 @@ public class Event {
 
     public String getTitle() {
         return title;
+    }
+
+    public List<Expense> getExpenses() {
+        return expenses;
     }
 
     public List<Participant> getParticipants() {
@@ -80,7 +85,7 @@ public class Event {
         }
         Log.d("", "Total expenses : " + expenses.size());
         Log.d("", "Individual contributions : " + participantContributions.values().size());
-        for(ParticipantContribution con : participantContributions.values()) {
+        for (ParticipantContribution con : participantContributions.values()) {
             Log.d("", con.getParticipant().getId() + " holds " + con.getContribution());
         }
         return new ArrayList<ParticipantContribution>(participantContributions.values());

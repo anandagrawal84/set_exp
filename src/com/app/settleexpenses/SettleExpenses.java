@@ -49,7 +49,7 @@ public class SettleExpenses extends ListActivity {
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        final CharSequence[] items = {"Show final settlements", "Edit Event", "Delete Event"};
+        final CharSequence[] items = {"Show final settlements", "Edit Event", "View Expenses", "Delete Event"};
         final long eventId = id;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Events");
@@ -67,6 +67,11 @@ public class SettleExpenses extends ListActivity {
                         startActivityForResult(editEventIntent, ACTIVITY_CREATE);
                         break;
                     case 2:
+                        Intent showExpensesIntent = new Intent(currentActivity, ShowExpenses.class);
+                        showExpensesIntent.putExtra(DbAdapter.EVENT_ID, eventId);
+                        startActivityForResult(showExpensesIntent, ACTIVITY_CREATE);
+                        break;
+                    case 3:
                         mDbHelper.deleteEvent(eventId);
                         Toast.makeText(getApplicationContext(), "Event is deleted", Toast.LENGTH_SHORT).show();
                         fillData();
