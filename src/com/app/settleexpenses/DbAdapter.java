@@ -77,10 +77,14 @@ public class DbAdapter {
     }
 
 
-    public long createEvent(String title) {
+    public long createOrUpdateEvent(long eventId, String title) {
         ContentValues initialValues = new ContentValues();
         initialValues.put(EVENT_TITLE, title);
-        return mDb.insert("events", null, initialValues);
+        if (eventId < 1) {
+            return mDb.insert("events", null, initialValues);
+        }
+        mDb.update("events", initialValues, EVENT_ID + "=" + eventId, null);
+        return eventId;
     }
 
     public boolean deleteEvent(long rowId) {

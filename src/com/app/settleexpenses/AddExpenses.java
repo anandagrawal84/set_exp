@@ -38,8 +38,6 @@ public class AddExpenses extends Activity {
 
         final ListView participantSelectorView = (ListView) findViewById(R.id.participant_selector);
         participantSelectorView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, allParticipantNames));
-        participantSelectorView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        participantSelectorView.setSelected(true);
 
         final Spinner paidBy = (Spinner) findViewById(R.id.paid_by);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, allParticipantNames);

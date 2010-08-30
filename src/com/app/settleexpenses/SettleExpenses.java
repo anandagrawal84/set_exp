@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -50,7 +49,7 @@ public class SettleExpenses extends ListActivity {
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        final CharSequence[] items = {"Show final settlements", "Delete Event"};
+        final CharSequence[] items = {"Show final settlements", "Edit Event", "Delete Event"};
         final long eventId = id;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Events");
@@ -58,11 +57,16 @@ public class SettleExpenses extends ListActivity {
             public void onClick(DialogInterface dialog, int item) {
                 switch (item) {
                     case 0:
-                        Intent addExpensesIntent = new Intent(currentActivity, ShowSettlements.class);
-                        addExpensesIntent.putExtra(DbAdapter.EVENT_ID, eventId);
-                        startActivityForResult(addExpensesIntent, 1);
+                        Intent showSettlementIntent = new Intent(currentActivity, ShowSettlements.class);
+                        showSettlementIntent.putExtra(DbAdapter.EVENT_ID, eventId);
+                        startActivityForResult(showSettlementIntent, 1);
                         break;
                     case 1:
+                        Intent editEventIntent = new Intent(currentActivity, CreateEvent.class);
+                        editEventIntent.putExtra(DbAdapter.EVENT_ID, eventId);
+                        startActivityForResult(editEventIntent, ACTIVITY_CREATE);
+                        break;
+                    case 2:
                         mDbHelper.deleteEvent(eventId);
                         Toast.makeText(getApplicationContext(), "Event is deleted", Toast.LENGTH_SHORT).show();
                         fillData();

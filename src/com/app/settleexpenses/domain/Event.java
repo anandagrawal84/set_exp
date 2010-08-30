@@ -6,6 +6,7 @@ import java.util.*;
 
 public class Event {
     private int id;
+
     private String title;
     private List<Expense> expenses;
 
@@ -13,6 +14,10 @@ public class Event {
         this.id = id;
         this.title = title;
         this.expenses = expenses;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public List<Participant> getParticipants() {
