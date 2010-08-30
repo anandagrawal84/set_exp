@@ -55,12 +55,11 @@ public class CreateEvent extends Activity {
     private String eventTitle(long eventId) {
         DbAdapter dbAdapter = new DbAdapter(currentActivity, new ContactsAdapter(currentActivity));
         dbAdapter.open();
-        if(eventId == -1) {
-            return "";
+        String title = "";
+        if(eventId != -1) {
+            title = dbAdapter.getEventById(eventId).getTitle();
         }
-        Event event = dbAdapter.GetEventById(eventId);
-
         dbAdapter.close();
-        return event.getTitle();
+        return title;
     }
 }

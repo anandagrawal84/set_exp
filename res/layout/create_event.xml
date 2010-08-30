@@ -22,7 +22,7 @@
 
 
 	<Button android:id="@+id/confirm"
-	  android:text="Create"
+	  android:text="Continue"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content" />
 

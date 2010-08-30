@@ -95,7 +95,7 @@ public class DbAdapter {
         return mDb.query("events", new String[]{EVENT_ID, EVENT_TITLE}, null, null, null, null, null);
     }
 
-    public Event GetEventById(long eventId) {
+    public Event getEventById(long eventId) {
         Cursor cursor = mDb.query("events", null, EVENT_ID + "=" + eventId, null, null, null, null);
         cursor.moveToFirst();
         return new Event(cursor.getInt(0), cursor.getString(1), getExpensesByEventId(eventId));
@@ -104,12 +104,13 @@ public class DbAdapter {
     private ArrayList<Expense> getExpensesByEventId(long eventId) {
         ArrayList<Expense> expenses = new ArrayList<Expense>();
         Cursor cursor = mDb.query("expenses", null, EXPENSE_EVENT_ID + "=" + eventId, null, null, null, null);
-        cursor.moveToFirst();
-        do {
-            Participant paidBy = contactsProvider.find(cursor.getString(1));
-            ArrayList<Participant> participants = getParticipantsByExpenseId(cursor.getInt(0));
-            expenses.add(new Expense(cursor.getString(4), cursor.getFloat(2), eventId, paidBy, participants));
-        } while (cursor.moveToNext());
+        if (cursor.moveToFirst()) {
+            do {
+                Participant paidBy = contactsProvider.find(cursor.getString(1));
+                ArrayList<Participant> participants = getParticipantsByExpenseId(cursor.getInt(0));
+                expenses.add(new Expense(cursor.getString(4), cursor.getFloat(2), eventId, paidBy, participants));
+            } while (cursor.moveToNext());
+        }
         return expenses;
     }
 

@@ -16,7 +16,7 @@ public class ShowSettlements extends ListActivity {
         setContentView(R.layout.show_settlements);
         DbAdapter mDbHelper = new DbAdapter(this, new ContactsAdapter(this));
         mDbHelper.open();
-        Event event = mDbHelper.GetEventById(getIntent().getLongExtra(DbAdapter.EVENT_ID, -1));
+        Event event = mDbHelper.getEventById(getIntent().getLongExtra(DbAdapter.EVENT_ID, -1));
         List<Settlement> settlements = event.calculateSettlements();
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.settlement);
         for (Settlement settlement : settlements) {
