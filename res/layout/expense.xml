@@ -19,7 +19,8 @@
     <TableRow>
         <TextView android:id="@+id/paid_by"
                   android:layout_column="1"
-                  android:textSize="16px"/>
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"/>
 
     </TableRow>
     <TableRow>

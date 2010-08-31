@@ -1,66 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical" android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:stretchColumns="1"
+             android:padding="3px">
 
-    <LinearLayout android:orientation="horizontal"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content">
+    <TableRow>
 
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
+        <TextView android:layout_width="90px"
                   android:text="Expense for"/>
         <EditText android:id="@+id/title"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
+                  android:layout_weight="1"
                   android:hint="@string/hint_required_field"
-                  android:layout_weight="1"/>
-    </LinearLayout>
-    <LinearLayout android:orientation="horizontal"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content">
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
+                  android:layout_alignParentRight="true"/>
+
+    </TableRow>
+
+    <TableRow>
+        <TextView android:layout_width="90px"
                   android:text="Amount"/>
         <EditText android:id="@+id/amount"
+                  android:numeric="decimal"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
                   android:hint="@string/hint_required_field"
-                  android:numeric="decimal"/>
-    </LinearLayout>
+                  android:layout_alignParentRight="true"/>
 
-    <LinearLayout android:orientation="horizontal"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content">
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
+    </TableRow>
+
+    <TableRow>
+        <TextView android:layout_width="90px"
                   android:text="Paid by"/>
         <Spinner android:id="@+id/paid_by"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
                  android:layout_weight="1"/>
-    </LinearLayout>
+    </TableRow>
 
-    <RelativeLayout android:layout_width="wrap_content"
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+    <View
+        android:layout_height="2dip"
+        android:background="#FF909090" />
 
+        <TextView android:text="Pick Participants"
+                  android:textSize="16px"/>
         <ListView android:id="@+id/participant_selector" android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                android:choiceMode="multipleChoice"/>
-
-    </RelativeLayout>
-
-
-    <Button android:id="@+id/confirm"
-            android:text="Create"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    <Button android:id="@+id/calculate"
-            android:text="Calculate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-</LinearLayout>
+                  android:choiceMode="multipleChoice"/>
+    <View
+        android:layout_height="2dip"
+        android:background="#FF909090" />
+    <TableRow>
+        <Button android:id="@+id/confirm"
+                android:text="Create"/>
+        <Button android:id="@+id/calculate"
+                android:text="Calculate"
+                android:width="80px"/>
+    </TableRow>
+</TableLayout>
