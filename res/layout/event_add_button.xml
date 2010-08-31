@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<Button xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/btn_loadmorecontacts"
-    android:text=" + Add an event"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:textColor="#FFFFFF"
-    android:background="@android:drawable/list_selector_background"
-    android:clickable="true"
-    android:onClick="onAddEventClick"
-    android:padding="3px"/>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:stretchColumns="1">
+
+    <TableRow>
+
+        <Button android:id="@+id/btn_loadmorecontacts"
+                android:layout_column="1"
+                android:text=" + Add an event"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:background="@android:drawable/list_selector_background"
+                android:clickable="true"
+                android:onClick="onAddEventClick"
+                android:padding="3px"
+                android:textSize="18px"/>
+    </TableRow>
+</TableLayout>

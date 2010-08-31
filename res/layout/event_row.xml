@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="horizontal" android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:stretchColumns="1">
 
-    <TextView android:id="@+id/text1"
-              xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:padding="3px"/>
-    
-</RelativeLayout>
+    <TableRow>
+
+
+        <TextView android:id="@+id/text1"
+                  android:layout_column="1"
+                  android:padding="3px"
+                  android:gravity="left"
+                  android:textSize="16px"/>
+    </TableRow>
+</TableLayout>
