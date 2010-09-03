@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="fill_parent"
-             android:layout_height="fill_parent"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
              android:stretchColumns="1"
              android:padding="3px">
 
@@ -39,18 +39,20 @@
                  android:layout_weight="1"/>
     </TableRow>
 
-    <View
-        android:layout_height="2dip"
-        android:background="#FF909090" />
+    <View android:layout_height="2dip"
+          android:background="#FF909090"
+          android:paddingBottom="5px"/>
+    <TextView android:text="Participants"
+              android:textSize="18px"/>
+    <TextView android:id="@+id/participants"
+              android:textSize="16px"/>
+    <Button android:id="@+id/edit_participants"
+                android:text="Edit participant list"/>
 
-        <TextView android:text="Pick Participants"
-                  android:textSize="16px"/>
-        <ListView android:id="@+id/participant_selector" android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:choiceMode="multipleChoice"/>
-    <View
-        android:layout_height="2dip"
-        android:background="#FF909090" />
+
+    <View android:layout_height="2dip"
+          android:background="#FF909090"
+          android:paddingBottom="5px"/>
     <TableRow>
         <Button android:id="@+id/confirm"
                 android:text="Create"/>
