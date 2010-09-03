@@ -24,7 +24,6 @@ public class ShowExpenses extends ListActivity {
         setContentView(R.layout.show_expenses);
 
         DbAdapter mDbHelper = new DbAdapter(this, new ContactsAdapter(this));
-        mDbHelper.open();
         Event event = mDbHelper.getEventById(getIntent().getLongExtra(DbAdapter.EVENT_ID, -1));
         List<Expense> expenses = event.getExpenses();
         List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
@@ -36,7 +35,6 @@ public class ShowExpenses extends ListActivity {
             item.put(PARTICIPANTS, flattenParticipants(expense.getParticipants()));
             list.add(item);
         }
-        mDbHelper.close();
         setListAdapter(new SimpleAdapter(this, list, R.layout.expense,
                 new String[]{TITLE, PAID_BY, AMOUNT, PARTICIPANTS},
                 new int[]{R.id.title, R.id.paid_by, R.id.amount, R.id.participants}));

@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.app.settleexpenses.domain.Event;
 
 
 public class CreateEvent extends Activity {
@@ -39,13 +38,11 @@ public class CreateEvent extends Activity {
                 }
 
                 DbAdapter dbAdapter = new DbAdapter(currentActivity, new ContactsAdapter(currentActivity));
-                dbAdapter.open();
 
                 long newEventId = dbAdapter.createOrUpdateEvent(eventId, title);
 
                 Intent intent = new Intent(currentActivity, ParticipantsPicker.class);
                 intent.putExtra(DbAdapter.EVENT_ID, newEventId);
-                dbAdapter.close();
                 startActivityForResult(intent, ACTIVITY_ADD_EXPENSE);
             }
 
@@ -54,12 +51,10 @@ public class CreateEvent extends Activity {
 
     private String eventTitle(long eventId) {
         DbAdapter dbAdapter = new DbAdapter(currentActivity, new ContactsAdapter(currentActivity));
-        dbAdapter.open();
         String title = "";
         if(eventId != -1) {
             title = dbAdapter.getEventById(eventId).getTitle();
         }
-        dbAdapter.close();
         return title;
     }
 }

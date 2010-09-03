@@ -72,7 +72,6 @@ public class AddExpenses extends Activity {
                 }
 
                 DbAdapter dbAdapter = new DbAdapter(view.getContext(), new ContactsAdapter(currentActivity));
-                dbAdapter.open();
 
                 float amount = Float.parseFloat(expenseAmount.getText().toString());
                 ArrayList<Participant> participants = selectedParticipants();
@@ -81,7 +80,6 @@ public class AddExpenses extends Activity {
                         eventId, allParticipants.get(paidBy.getSelectedItemPosition()), participants);
 
                 dbAdapter.createExpense(expense);
-                dbAdapter.close();
                 Toast toast = Toast.makeText(view.getContext(), "Expense Created Successfully.", 2);
                 toast.show();
                 finish();

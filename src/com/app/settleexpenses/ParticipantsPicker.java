@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-import com.app.settleexpenses.domain.Event;
 import com.app.settleexpenses.domain.Participant;
 
 import java.util.ArrayList;
@@ -65,13 +64,11 @@ public class ParticipantsPicker extends Activity {
 
     private void populateParticipants(long eventId) {
         DbAdapter dbAdapter = new DbAdapter(currentActivity, new ContactsAdapter(currentActivity));
-        dbAdapter.open();
         List<Participant> participants = dbAdapter.getEventById(eventId).getParticipants();
         for(Participant participant : participants) {
             contactIds.add(participant.getId());
             contactsAdapter.add(participant.getName());
         }
-        dbAdapter.close();
     }
 
     @Override

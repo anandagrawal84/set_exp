@@ -68,6 +68,12 @@ public class DbAdapter {
 
     public DbAdapter open() throws SQLException {
         mDbHelper = new DatabaseHelper(mCtx);
+        mDb = mDbHelper.getReadableDatabase();
+        return this;
+    }
+
+    public DbAdapter openWritable() throws SQLException {
+        mDbHelper = new DatabaseHelper(mCtx);
         mDb = mDbHelper.getWritableDatabase();
         return this;
     }
@@ -78,17 +84,27 @@ public class DbAdapter {
 
 
     public long createOrUpdateEvent(long eventId, String title) {
-        ContentValues initialValues = new ContentValues();
-        initialValues.put(EVENT_TITLE, title);
-        if (eventId < 1) {
-            return mDb.insert("events", null, initialValues);
+        openWritable();
+        try {
+            ContentValues initialValues = new ContentValues();
+            initialValues.put(EVENT_TITLE, title);
+            if (eventId < 1) {
+                return mDb.insert("events", null, initialValues);
+            }
+            mDb.update("events", initialValues, EVENT_ID + "=" + eventId, null);
+        } finally {
+            close();
         }
-        mDb.update("events", initialValues, EVENT_ID + "=" + eventId, null);
         return eventId;
     }
 
     public boolean deleteEvent(long rowId) {
-        return mDb.delete("events", EVENT_ID + " = " + rowId, null) > 0;
+        openWritable();
+        try {
+            return mDb.delete("events", EVENT_ID + " = " + rowId, null) > 0;
+        } finally {
+            close();
+        }
     }
 
     public Cursor fetchAllEvents() {
@@ -96,9 +112,16 @@ public class DbAdapter {
     }
 
     public Event getEventById(long eventId) {
-        Cursor cursor = mDb.query("events", null, EVENT_ID + "=" + eventId, null, null, null, null);
-        cursor.moveToFirst();
-        return new Event(cursor.getInt(0), cursor.getString(1), getExpensesByEventId(eventId));
+        open();
+        Cursor cursor = null;
+        try {
+            cursor = mDb.query("events", null, EVENT_ID + "=" + eventId, null, null, null, null);
+            cursor.moveToFirst();
+            return new Event(cursor.getInt(0), cursor.getString(1), getExpensesByEventId(eventId));
+        } finally {
+            close();
+            if (cursor != null) cursor.close();
+        }
     }
 
     private ArrayList<Expense> getExpensesByEventId(long eventId) {
@@ -111,6 +134,7 @@ public class DbAdapter {
                 expenses.add(new Expense(cursor.getString(4), cursor.getFloat(2), eventId, paidBy, participants));
             } while (cursor.moveToNext());
         }
+        cursor.close();
         return expenses;
     }
 
@@ -122,18 +146,24 @@ public class DbAdapter {
                 participants.add(contactsProvider.find(cursor.getString(1)));
             } while (cursor.moveToNext());
         }
+        cursor.close();
         return participants;
     }
 
     public long createExpense(Expense expense) {
-        long expenseId = mDb.insert("expenses", null, expense.toContentValues());
-        for (Participant participant : expense.getParticipants()) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(PARTICIPANT_EXPENSE_ID, expenseId);
-            contentValues.put(PARTICIPANT_ID, participant.getId());
-            mDb.insert("participants", null, contentValues);
+        openWritable();
+        try {
+            long expenseId = mDb.insert("expenses", null, expense.toContentValues());
+            for (Participant participant : expense.getParticipants()) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(PARTICIPANT_EXPENSE_ID, expenseId);
+                contentValues.put(PARTICIPANT_ID, participant.getId());
+                mDb.insert("participants", null, contentValues);
+            }
+            return expenseId;
+        } finally {
+            close();
         }
-        return expenseId;
     }
 
 }
