@@ -83,8 +83,13 @@ public class ParticipantsPicker extends Activity {
                     if (c.moveToFirst()) {
                         String name = c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME));
                         String id = c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
-                        contactsAdapter.add(name);
-                        contactIds.add(id);
+                        if (contactIds.contains(id)){
+	                        Toast toast = Toast.makeText(currentActivity, "Participant is already in the list", Toast.LENGTH_LONG);
+	                        toast.show();
+                        }else{
+                        	contactsAdapter.add(name);
+                            contactIds.add(id);
+                        }
                     }
                 }
                 break;
