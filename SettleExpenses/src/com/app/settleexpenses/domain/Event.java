@@ -1,8 +1,10 @@
 package com.app.settleexpenses.domain;
 
-import android.util.Log;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class Event {
     private int id;
@@ -85,9 +87,9 @@ public class Event {
         }
 //        Log.d("", "Total expenses : " + expenses.size());
 //        Log.d("", "Individual contributions : " + participantContributions.values().size());
-        for (ParticipantContribution con : participantContributions.values()) {
+//        for (ParticipantContribution con : participantContributions.values()) {
 //            Log.d("", con.getParticipant().getId() + " holds " + con.getContribution());
-        }
+//        }
         return new ArrayList<ParticipantContribution>(participantContributions.values());
     }
 }

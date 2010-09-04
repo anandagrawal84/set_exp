@@ -1,11 +1,10 @@
 package com.app.settleexpenses.domain;
 
-import android.content.ContentValues;
-import com.app.settleexpenses.DbAdapter;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+
+import android.content.ContentValues;
+
+import com.app.settleexpenses.DbAdapter;
 
 public class Expense {
 
