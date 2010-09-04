@@ -39,10 +39,10 @@ public class Event {
         ArrayList<ParticipantContribution> participantContributions = calculateParticipantContribution();
         for (ParticipantContribution participantContribution : participantContributions) {
             if (participantContribution.isPayer()) {
-                Log.d("Event : ", participantContribution.getParticipant().getId() + " should pay $" + participantContribution.getContribution());
+//                Log.d("Event : " + id + " ", participantContribution.getParticipant().getId() + " should pay $" + participantContribution.getContribution());
                 settlements.addAll(payToOneOf(participantContributions, participantContribution));
             } else {
-                Log.d("Event : ", participantContribution.getParticipant().getId() + " should receive $" + participantContribution.getContribution());
+//                Log.d("Event : ", participantContribution.getParticipant().getId() + " should receive $" + participantContribution.getContribution());
             }
         }
         return settlements;
@@ -59,10 +59,10 @@ public class Event {
                 }
 
                 float settlementAmount = absoluteSettlementAmount * -1;
-                Log.d("", "Absolute settlement amount : " + settlementAmount);
+//                Log.d("", "Absolute settlement amount : " + settlementAmount);
                 participantContribution.addContribution(settlementAmount);
                 payer.addContribution(absoluteSettlementAmount);
-                Log.d("Event : ", participantContribution.getParticipant().getId() + " received a sum of $" + absoluteSettlementAmount);
+//                Log.d("Event : ", participantContribution.getParticipant().getId() + " received a sum of $" + absoluteSettlementAmount);
                 settlements.add(new Settlement(payer.getParticipant(), participantContribution.getParticipant(), absoluteSettlementAmount));
                 if (payer.getContribution() == 0) return settlements;
             }
@@ -73,8 +73,8 @@ public class Event {
     private ArrayList<ParticipantContribution> calculateParticipantContribution() {
         HashMap<Participant, ParticipantContribution> participantContributions = new HashMap<Participant, ParticipantContribution>();
         for (Expense expense : expenses) {
-            Log.d("", "Expense has these participants : " + expense.getParticipants().size());
-            for (Participant participant : expense.getParticipants()) {
+//            Log.d("", "Expense has these participants : " + expense.getParticipants().size());
+            for (Participant participant : expense.participantsWithPayer()) {
                 ParticipantContribution participantContribution = participantContributions.get(participant);
                 if (participantContribution == null) {
                     participantContributions.put(participant, new ParticipantContribution(participant, 0));
@@ -83,10 +83,10 @@ public class Event {
                 participantContributions.get(participant).addContribution(expense.contributionAmount(participant));
             }
         }
-        Log.d("", "Total expenses : " + expenses.size());
-        Log.d("", "Individual contributions : " + participantContributions.values().size());
+//        Log.d("", "Total expenses : " + expenses.size());
+//        Log.d("", "Individual contributions : " + participantContributions.values().size());
         for (ParticipantContribution con : participantContributions.values()) {
-            Log.d("", con.getParticipant().getId() + " holds " + con.getContribution());
+//            Log.d("", con.getParticipant().getId() + " holds " + con.getContribution());
         }
         return new ArrayList<ParticipantContribution>(participantContributions.values());
     }

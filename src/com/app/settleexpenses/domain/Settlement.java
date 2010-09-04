@@ -11,11 +11,11 @@ public class Settlement {
         this.amount = amount;
     }
 
-    public Participant getPaidBy() {
+    public Participant payer() {
         return paidBy;
     }
 
-    public Participant getToPay() {
+    public Participant receiver() {
         return toPay;
     }
 

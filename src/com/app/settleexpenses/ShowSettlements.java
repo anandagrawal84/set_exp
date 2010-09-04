@@ -19,8 +19,8 @@ public class ShowSettlements extends ListActivity {
         List<Settlement> settlements = event.calculateSettlements();
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.settlement);
         for (Settlement settlement : settlements) {
-            Log.d("Settlement", settlement.getPaidBy().getId() + " pays $" + settlement.getAmount() + " to " + settlement.getToPay().getId());
-            arrayAdapter.add(settlement.getPaidBy().getName() + " pays $" + settlement.getAmount() + " to " + settlement.getToPay().getName());
+            Log.d("Settlement", settlement.payer().getId() + " pays $" + settlement.getAmount() + " to " + settlement.receiver().getId());
+            arrayAdapter.add(settlement.payer().getName() + " pays $" + settlement.getAmount() + " to " + settlement.receiver().getName());
         }
         setListAdapter(arrayAdapter);
     }
