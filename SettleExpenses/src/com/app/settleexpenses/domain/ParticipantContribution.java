@@ -1,5 +1,7 @@
 package com.app.settleexpenses.domain;
 
+import java.text.DecimalFormat;
+
 public class ParticipantContribution {
     private Participant participant;
     private float contribution;
@@ -9,7 +11,7 @@ public class ParticipantContribution {
         this.contribution = contribution;
     }
 
-    public void addContribution(float amount) {
+    public void addContribution(double amount) {
         contribution+=amount;
     }
 
@@ -21,11 +23,12 @@ public class ParticipantContribution {
         return ((int)contribution == 0);
     }
 
-    public float getContribution() {
-        return contribution;
+    public Double getContribution() {
+    	DecimalFormat twoDForm = new DecimalFormat("#.##");
+		return Double.valueOf(twoDForm.format(contribution));
     }
 
-    public boolean canAcceptFullAmount(float contribution) {
+    public boolean canAcceptFullAmount(double contribution) {
         return !isPayer() && (Math.abs(this.contribution) >= Math.abs(contribution));
     }
 

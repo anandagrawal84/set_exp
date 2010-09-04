@@ -3,9 +3,9 @@ package com.app.settleexpenses.domain;
 public class Settlement {
     private Participant paidBy;
     private Participant toPay;
-    private float amount;
+    private double amount;
 
-    public Settlement(Participant paidBy, Participant toPay, float amount) {
+    public Settlement(Participant paidBy, Participant toPay, double amount) {
         this.paidBy = paidBy;
         this.toPay = toPay;
         this.amount = amount;
@@ -19,7 +19,7 @@ public class Settlement {
         return toPay;
     }
 
-    public float getAmount() {
+    public double getAmount() {
         return amount;
     }
 }

@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Set;
 
 public class Event {
-    private int id;
+    @SuppressWarnings("unused")
+	private int id;
 
     private String title;
 
@@ -54,13 +55,13 @@ public class Event {
         ArrayList<Settlement> settlements = new ArrayList<Settlement>();
         for (ParticipantContribution participantContribution : participantContributions) {
             if (!participantContribution.isPayer() && !participantContribution.isSettled()) {
-                float absoluteSettlementAmount = Math.abs(payer.getContribution());
+                double absoluteSettlementAmount = Math.abs(payer.getContribution());
 
                 if (!participantContribution.canAcceptFullAmount(payer.getContribution())) {
                     absoluteSettlementAmount = Math.abs(payer.getContribution()) - Math.abs(participantContribution.getContribution());
                 }
 
-                float settlementAmount = absoluteSettlementAmount * -1;
+                double settlementAmount = absoluteSettlementAmount * -1;
 //                Log.d("", "Absolute settlement amount : " + settlementAmount);
                 participantContribution.addContribution(settlementAmount);
                 payer.addContribution(absoluteSettlementAmount);
