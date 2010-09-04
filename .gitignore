@@ -1,3 +1,6 @@
-bin/
-gen/
-out/
+SettleExpenses/bin/
+SettleExpenses/gen/
+SettleExpenses/out/
+SettleExpensesTest/bin/
+SettleExpensesTest/gen/
+SettleExpensesTest/out/
