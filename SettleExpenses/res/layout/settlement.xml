@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView android:id="@+id/text1"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:stretchColumns="*"
+             android:padding="3px">
+
+    <TableRow>
+        <TextView android:id="@+id/payer"
+                  android:layout_width="wrap_content"
+                  android:textSize="16px"/>
+        <TextView android:textStyle="bold"
+        		  android:text="--"
+                  android:textSize="20px"/>
+        <TextView android:id="@+id/amount"
+                  android:textSize="16px"
+                  android:textStyle="bold"
+                  android:gravity="center"/>
+        <TextView android:textStyle="bold"
+        		  android:text="-->"
+                  android:textSize="20px"/>
+        <TextView android:layout_column="1"
+        		  android:id="@+id/payTo"
+                  android:textSize="16px"
+                  android:gravity="right"/>
+    </TableRow>
+</TableLayout>
+

@@ -1,5 +1,7 @@
 package com.app.settleexpenses.domain;
 
+import java.text.DecimalFormat;
+
 public class Settlement {
     private Participant paidBy;
     private Participant toPay;
@@ -20,6 +22,7 @@ public class Settlement {
     }
 
     public double getAmount() {
-        return amount;
+    	DecimalFormat twoDForm = new DecimalFormat("#.##");
+		return Double.valueOf(twoDForm.format(amount));
     }
 }
