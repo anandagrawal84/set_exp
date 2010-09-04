@@ -16,7 +16,7 @@
                 android:background="@android:drawable/list_selector_background"
                 android:clickable="true"
                 android:onClick="onAddEventClick"
-                android:padding="3px"
+                android:padding="5px"
                 android:textSize="18px"/>
     </TableRow>
 </TableLayout>

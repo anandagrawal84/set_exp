@@ -41,6 +41,7 @@ public class ShowExpenses extends ListActivity {
     }
 
     private String flattenParticipants(ArrayList<Participant> participants) {
+    	if (participants.size() == 0) return "";
         String result = "";
         for (Participant participant : participants) {
             result += (participant.getName() + ", ");

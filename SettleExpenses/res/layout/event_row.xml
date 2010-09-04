@@ -10,8 +10,8 @@
 
         <TextView android:id="@+id/text1"
                   android:layout_column="1"
-                  android:padding="3px"
+                  android:padding="5px"
                   android:gravity="left"
-                  android:textSize="16px"/>
+                  android:textSize="18px"/>
     </TableRow>
 </TableLayout>

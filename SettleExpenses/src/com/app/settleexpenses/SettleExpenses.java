@@ -27,7 +27,6 @@ public class SettleExpenses extends ListActivity {
         getListView().addHeaderView(header);
 
         mDbHelper = new DbAdapter(this, new ContactsAdapter(this));
-        mDbHelper.open();
         fillData();
     }
 
@@ -37,6 +36,7 @@ public class SettleExpenses extends ListActivity {
     }
 
     private void fillData() {
+    	mDbHelper.open();
         Cursor c = mDbHelper.fetchAllEvents();
         startManagingCursor(c);
 
@@ -45,6 +45,7 @@ public class SettleExpenses extends ListActivity {
 
         SimpleCursorAdapter notes = new SimpleCursorAdapter(this, R.layout.event_row, c, from, to);
         setListAdapter(notes);
+        mDbHelper.close();
     }
 
     @Override
@@ -96,7 +97,6 @@ public class SettleExpenses extends ListActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mDbHelper.close();
     }
 
 }
