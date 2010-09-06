@@ -44,17 +44,19 @@
           android:background="#FF909090"
           android:padding="5px"/>
     
-    <TextView android:text="Participants" />
-    <TextView android:id="@+id/participants"
-              android:textSize="16px"/>
-    
+    <TableRow android:paddingBottom="10px">
+        <TextView android:text="Participants" />
+        <TextView android:id="@+id/participants"
+                  android:textSize="20px"
+                  />
+    </TableRow>
     
    	<TableLayout android:layout_width="wrap_content"
 	             android:layout_height="wrap_content"
 	             android:stretchColumns="*">
         <TableRow>    
 		    <Button android:id="@+id/edit_participants"
-	                android:text="Edit participant list"/>
+	                android:text="Pick previously added"/>
 	        <Button android:id="@+id/add_participant"
 					android:text="Add Participants"/>
 		</TableRow>
@@ -67,5 +69,5 @@
     <Button android:id="@+id/confirm"
             android:text="Create"/>
     <Button android:id="@+id/calculate"
-            android:text="Show Settlements"/>
+            android:text="Show final Settlements"/>
 </TableLayout>

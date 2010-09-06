@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, SettleExpenses!</string>
-    <string name="app_name">SettleExpenses</string>
+    <string name="app_name">Total It Up</string>
     <string name="no_events">No Events Yet!!</string>
     <string name="menu_insert">Add new Event</string>
     <string name="hint_required_field">(Required)</string>

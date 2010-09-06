@@ -42,12 +42,13 @@ public class AddExpenses extends Activity {
 
     private TextView participantsText;
     private Button paidByButton;
+    private Button editParticipantList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_expenses);
-        setTitle("Add Expenses");
+        setTitle("Add Expense");
 
         expenseTitleText = (EditText) findViewById(R.id.title);
         expenseAmount = (EditText) findViewById(R.id.amount);
@@ -70,9 +71,11 @@ public class AddExpenses extends Activity {
         updateParticipantList();
 
 
-        Button editParticipantList = (Button) findViewById(R.id.edit_participants);
+        editParticipantList = (Button) findViewById(R.id.edit_participants);
         editParticipantList.setOnClickListener(new ButtonClickHandler());
 
+        if (allParticipants.size() == 0) editParticipantList.setEnabled(false);
+        
         paidByButton = (Button) findViewById(R.id.paid_by);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
@@ -192,6 +195,8 @@ public class AddExpenses extends Activity {
             switch (clicked) {
                 case DialogInterface.BUTTON_POSITIVE:
                 	selections = newSelections;
+                    editParticipantList.setEnabled(true);
+                    editParticipantList.setText("Edit participants");
                     updateParticipantList();
                     break;
             }
@@ -214,7 +219,7 @@ public class AddExpenses extends Activity {
                 	Participant participant = fetchParticipantFromResult(data);
                     if (participant != null) {
                         if (selectedParticipants().contains(participant)){
-	                        Toast toast = Toast.makeText(currentActivity, "Participant is already in the list", Toast.LENGTH_LONG);
+	                        Toast toast = Toast.makeText(currentActivity, "Participant is already present", Toast.LENGTH_LONG);
 	                        toast.show();
                         }else{
                         	int index = allParticipants.indexOf(participant);
@@ -227,6 +232,8 @@ public class AddExpenses extends Activity {
                                 System.arraycopy(selections, 0, result, 0, selections.length);
                                 result[result.length - 1] = true;
                                 selections = result;
+                                editParticipantList.setEnabled(true);
+                                editParticipantList.setText("Edit participants");
                         	}
                             updateParticipantList();
                         }
@@ -239,19 +246,6 @@ public class AddExpenses extends Activity {
                     if (participant != null) {
                       paidBy = participant;  
                       paidByButton.setText(participant.getName());
-
-//                    	int index = allParticipants.indexOf(participant);
-//                    	if(index >= 0) {
-//                    		selections[index] = true;
-//                    	} else {
-//                    		allParticipantNames.add(participant.getName());
-//                            allParticipants.add(participant);
-//                            boolean[] result = new boolean[selections.length + 1];
-//                            System.arraycopy(selections, 0, result, 0, selections.length);
-//                            result[result.length - 1] = true;
-//                            selections = result;
-//                    	}
-//                        updateParticipantList();
                     }
                 }
         }
