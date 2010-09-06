@@ -17,7 +17,7 @@ public class ParticipantContributionTest extends TestCase {
 	public void testShouldAddContributionAmount() {
 		ParticipantContribution participantContribution = new ParticipantContribution(participant, 200);
 		participantContribution.addContribution(300);
-		assertEquals(500f, participantContribution.getContribution());
+		assertEquals(500D, participantContribution.getContribution());
 	}
 	
 	public void testShouldReturnTrueIfThereIsNoSettlementAmount() {
