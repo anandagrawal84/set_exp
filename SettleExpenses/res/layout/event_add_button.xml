@@ -7,9 +7,10 @@
 
     <TableRow>
 
+		<ImageView android:src="@drawable/add_event"/>
         <Button android:id="@+id/btn_loadmorecontacts"
                 android:layout_column="1"
-                android:text=" + Add an event"
+                android:text="Add an event"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#FFFFFF"

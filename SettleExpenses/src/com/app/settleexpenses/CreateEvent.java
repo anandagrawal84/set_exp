@@ -41,7 +41,7 @@ public class CreateEvent extends Activity {
 
                 long newEventId = dbAdapter.createOrUpdateEvent(eventId, title);
 
-                Intent intent = new Intent(currentActivity, ParticipantsPicker.class);
+                Intent intent = new Intent(currentActivity, AddExpenses.class);
                 intent.putExtra(DbAdapter.EVENT_ID, newEventId);
                 startActivityForResult(intent, ACTIVITY_ADD_EXPENSE);
             }

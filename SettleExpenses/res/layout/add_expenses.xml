@@ -35,29 +35,37 @@
     <TableRow>
         <TextView android:layout_width="90px"
                   android:text="Paid by"/>
-        <Spinner android:id="@+id/paid_by"
-                 android:layout_weight="1"/>
+        <Button android:id="@+id/paid_by"
+                android:layout_weight="1"
+                android:text="(Required)"/>
     </TableRow>
 
     <View android:layout_height="2dip"
           android:background="#FF909090"
-          android:paddingBottom="5px"/>
-    <TextView android:text="Participants"
-              android:textSize="18px"/>
+          android:padding="5px"/>
+    
+    <TextView android:text="Participants" />
     <TextView android:id="@+id/participants"
               android:textSize="16px"/>
-    <Button android:id="@+id/edit_participants"
-                android:text="Edit participant list"/>
-
+    
+    
+   	<TableLayout android:layout_width="wrap_content"
+	             android:layout_height="wrap_content"
+	             android:stretchColumns="*">
+        <TableRow>    
+		    <Button android:id="@+id/edit_participants"
+	                android:text="Edit participant list"/>
+	        <Button android:id="@+id/add_participant"
+					android:text="Add Participants"/>
+		</TableRow>
+    </TableLayout>
+	
 
     <View android:layout_height="2dip"
           android:background="#FF909090"
-          android:paddingBottom="5px"/>
-    <TableRow>
-        <Button android:id="@+id/confirm"
-                android:text="Create"/>
-        <Button android:id="@+id/calculate"
-                android:text="Calculate"
-                android:width="80px"/>
-    </TableRow>
+          android:padding="5px"/>
+    <Button android:id="@+id/confirm"
+            android:text="Create"/>
+    <Button android:id="@+id/calculate"
+            android:text="Show Settlements"/>
 </TableLayout>
