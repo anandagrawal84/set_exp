@@ -11,14 +11,15 @@
         <TextView android:layout_column="1"
                   android:id="@+id/title"
                   android:textStyle="bold"
-                  android:textSize="16px"/>
+                  android:textSize="20px"/>
         <TextView android:id="@+id/amount"
-                  android:textSize="16px"
+                  android:textSize="20px"
                   android:gravity="right"/>
     </TableRow>
     <TableRow>
         <TextView android:id="@+id/paid_by"
                   android:layout_column="1"
+                  android:textSize="18px"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"/>
 
@@ -26,7 +27,9 @@
     <TableRow>
         <TextView android:id="@+id/participants"
                   android:layout_column="1"
-                  android:textSize="12px"/>
+                  android:singleLine="false"
+                  android:width="0dip"
+                  android:textSize="16px"/>
 
     </TableRow>
 

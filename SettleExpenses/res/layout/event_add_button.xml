@@ -3,20 +3,21 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
              android:layout_width="fill_parent"
              android:layout_height="fill_parent"
-             android:stretchColumns="1">
+             android:stretchColumns="*"
+             android:onClick="onAddEventClick"
+             android:background="@android:drawable/list_selector_background">
 
     <TableRow>
 
-        <Button android:id="@+id/btn_loadmorecontacts"
-                android:layout_column="1"
+        <ImageView android:src="@drawable/add_icon32"
+                   android:layout_gravity="right"
+                   android:paddingTop="9dip"/>
+        <TextView android:layout_column="1"
                 android:text="Add an event"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="8px"
                 android:textColor="#FFFFFF"
-                android:background="@android:drawable/list_selector_background"
-                android:clickable="true"
-                android:onClick="onAddEventClick"
-                android:padding="5px"
-                android:textSize="18px"/>
+                android:textStyle="bold"
+                android:textSize="24px"/>
     </TableRow>
 </TableLayout>

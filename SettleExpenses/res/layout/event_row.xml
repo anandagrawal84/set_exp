@@ -6,12 +6,10 @@
              android:stretchColumns="1">
 
     <TableRow>
-
-
         <TextView android:id="@+id/text1"
                   android:layout_column="1"
-                  android:padding="5px"
+                  android:padding="8px"
                   android:gravity="left"
-                  android:textSize="18px"/>
+                  android:textSize="22px"/>
     </TableRow>
 </TableLayout>
