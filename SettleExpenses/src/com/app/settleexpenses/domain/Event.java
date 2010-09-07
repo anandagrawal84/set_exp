@@ -1,6 +1,8 @@
 package com.app.settleexpenses.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -80,6 +82,16 @@ public class Event {
                 participantContributions.get(participant).addContribution(expense.contributionAmount(participant));
             }
         }
-        return new ArrayList<ParticipantContribution>(participantContributions.values());
+        return sortedContributions(new ArrayList<ParticipantContribution>(participantContributions.values()));
     }
+
+	private ArrayList<ParticipantContribution> sortedContributions(ArrayList<ParticipantContribution> arrayList) {
+		Collections.sort(arrayList, new Comparator<ParticipantContribution>() {
+			public int compare(ParticipantContribution object1,
+					ParticipantContribution object2) {
+				return new Double(Math.abs(object2.getContribution())).compareTo(Math.abs(object1.getContribution()));
+			}
+		});
+		return arrayList;
+	}
 }

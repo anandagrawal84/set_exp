@@ -1,9 +1,9 @@
 package com.app.settleexpenses.test;
 
+import junit.framework.TestCase;
+
 import com.app.settleexpenses.domain.Participant;
 import com.app.settleexpenses.domain.ParticipantContribution;
-
-import junit.framework.TestCase;
 
 public class ParticipantContributionTest extends TestCase {
 

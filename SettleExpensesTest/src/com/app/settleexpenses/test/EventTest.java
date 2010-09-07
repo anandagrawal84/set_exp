@@ -1,14 +1,15 @@
 package com.app.settleexpenses.test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import junit.framework.TestCase;
 
 import com.app.settleexpenses.domain.Event;
 import com.app.settleexpenses.domain.Expense;
 import com.app.settleexpenses.domain.Participant;
 import com.app.settleexpenses.domain.Settlement;
-
-import junit.framework.TestCase;
 
 public class EventTest extends TestCase {
 
@@ -87,17 +88,17 @@ public class EventTest extends TestCase {
 		expenses.add(new Expense("ge", 600, 1, chandan, participants));
 		expenses.add(new Expense("ge", 500, 1, sunit, participants));
 		
-		
 		Event event = new Event(1, "Title", expenses);
 		List<Settlement> settlements = event.calculateSettlements();
 		assertEquals(2, settlements.size());
-		assertEquals(chandan.getId(), settlements.get(0).payer().getId());
-		assertEquals(sunit.getId(), settlements.get(0).receiver().getId());
-		assertEquals(650D, settlements.get(0).getAmount());
 		
-		assertEquals(anand.getId(), settlements.get(1).payer().getId());
+		assertEquals(anand.getId(), settlements.get(0).payer().getId());
+		assertEquals(sunit.getId(), settlements.get(0).receiver().getId());
+		assertEquals(1050D, settlements.get(0).getAmount());
+		
+		assertEquals(chandan.getId(), settlements.get(1).payer().getId());
 		assertEquals(sunit.getId(), settlements.get(1).receiver().getId());
-		assertEquals(1050D, settlements.get(1).getAmount());
+		assertEquals(650D, settlements.get(1).getAmount());
 	}
 	
 	public void testShouldCalculateOurDelhiExpenses() {
@@ -142,5 +143,46 @@ public class EventTest extends TestCase {
 		assertEquals(anand.getId(), settlements.get(2).payer().getId());
 		assertEquals(sapto.getId(), settlements.get(2).receiver().getId());
 		assertEquals(228.75, settlements.get(2).getAmount());
+	}
+	
+	public void testShouldCalculateCorrectSettlementWhenAllExpensesHaveDifferentParticipants() {
+		ArrayList<Expense> expenses = new ArrayList<Expense>();
+		Participant anand = new Participant("12", "Anand");
+		Participant sapto = new Participant("134", "sapto");
+		Participant selva = new Participant("144", "selva");
+		
+		expenses.add(new Expense("lunch", 500, 1, sapto, new ArrayList<Participant>(Arrays.asList(new Participant[] {anand, selva}))));
+		
+		Participant ankit = new Participant("12adf", "ankit");
+		Participant abhas = new Participant("1343", "abhas");
+		Participant arti = new Participant("1442", "arti");
+		Participant amit = new Participant("1441", "amit");
+		
+		expenses.add(new Expense("lunch", 1000, 1, ankit, new ArrayList<Participant>(Arrays.asList(new Participant[] {abhas, arti, amit}))));
+		
+		Event event = new Event(1, "Title", expenses);
+		List<Settlement> settlements = event.calculateSettlements();
+		assertEquals(5, settlements.size());
+		
+		assertEquals(arti.getId(), settlements.get(0).payer().getId());
+		assertEquals(ankit.getId(), settlements.get(0).receiver().getId());
+		assertEquals(333.33, settlements.get(0).getAmount());
+		
+		
+		assertEquals(abhas.getId(), settlements.get(1).payer().getId());
+		assertEquals(ankit.getId(), settlements.get(1).receiver().getId());
+		assertEquals(333.33, settlements.get(1).getAmount());
+		
+		assertEquals(amit.getId(), settlements.get(2).payer().getId());
+		assertEquals(ankit.getId(), settlements.get(2).receiver().getId());
+		assertEquals(333.33, settlements.get(2).getAmount());
+		
+		assertEquals(selva.getId(), settlements.get(3).payer().getId());
+		assertEquals(sapto.getId(), settlements.get(3).receiver().getId());
+		assertEquals(250.0, settlements.get(3).getAmount());
+		
+		assertEquals(anand.getId(), settlements.get(4).payer().getId());
+		assertEquals(sapto.getId(), settlements.get(4).receiver().getId());
+		assertEquals(250.0, settlements.get(4).getAmount());
 	}
 }

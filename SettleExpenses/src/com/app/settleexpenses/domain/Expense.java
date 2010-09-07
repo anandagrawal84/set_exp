@@ -1,5 +1,6 @@
 package com.app.settleexpenses.domain;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import android.content.ContentValues;
@@ -9,13 +10,13 @@ import com.app.settleexpenses.DbAdapter;
 public class Expense {
 
 	private String title;
-	private float amount;
+	private double amount;
 	private long eventId;
 
 	private Participant paidBy;
 	private ArrayList<Participant> participants;
 
-	public Expense(String title, float amount, long eventId,
+	public Expense(String title, double amount, long eventId,
 			Participant paidBy, ArrayList<Participant> participants) {
 		this.title = title;
 		this.amount = amount;
@@ -43,7 +44,7 @@ public class Expense {
 		return paidBy;
 	}
 
-	public float getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
@@ -51,8 +52,10 @@ public class Expense {
 		return title;
 	}
 
-	public float contributionAmount(Participant participant) {
-		float contributionAmount = amount / participants.size();
+	public double contributionAmount(Participant participant) {
+		double contributionAmount = amount / participants.size();
+		DecimalFormat twoDForm = new DecimalFormat("#.##");
+		contributionAmount = Double.valueOf(twoDForm.format(contributionAmount));
 		if (paidBy.getId().equals(participant.getId())) {
 			if (isPayerPartOfExpense()) {
 				return amount - contributionAmount;
