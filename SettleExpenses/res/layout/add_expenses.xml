@@ -1,78 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:stretchColumns="1"
-             android:padding="3px">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+     android:scrollbars="vertical"
+     android:layout_height="fill_parent"
+     android:layout_width="fill_parent">
 
-    <TableRow>
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:stretchColumns="1"
+                 android:padding="3px"
+                 android:scrollbars="vertical">
 
-        <TextView android:layout_width="90px"
-                  android:text="Expense for"/>
-        <EditText android:id="@+id/title"
+        <TableRow>
+
+            <TextView android:layout_width="90px"
+                      android:text="Expense for"/>
+            <EditText android:id="@+id/title"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:hint="@string/hint_required_field"
+                      android:layout_alignParentRight="true"/>
+
+        </TableRow>
+
+        <TableRow>
+            <TextView android:layout_width="90px"
+                      android:text="Amount"/>
+            <EditText android:id="@+id/amount"
+                      android:numeric="decimal"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:hint="@string/hint_required_field"
+                      android:layout_alignParentRight="true"/>
+
+        </TableRow>
+
+        <TableRow>
+            <TextView android:layout_width="90px"
+                      android:text="Paid by"/>
+            <Button android:id="@+id/paid_by"
+                    android:layout_weight="1"
+                    android:text="(Required)"/>
+        </TableRow>
+
+        <View android:layout_height="2dip"
+              android:background="#FF909090"
+              android:padding="5px"/>
+
+        <TableRow android:paddingBottom="10px"
                   android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_weight="1"
-                  android:hint="@string/hint_required_field"
-                  android:layout_alignParentRight="true"/>
+                  android:layout_height="wrap_content">
+            <TextView android:text="Participants" />
+            <TextView android:id="@+id/participants"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:singleLine="false"
+                      android:width="0dip"
+                      android:textSize="20px" />
+        </TableRow>
 
-    </TableRow>
+        <TableLayout android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:stretchColumns="*">
+            <TableRow>
+                <Button android:id="@+id/edit_participants"
+                        android:text="Pick previously added"/>
+                <Button android:id="@+id/add_participant"
+                        android:text="Add Participants"/>
+            </TableRow>
+        </TableLayout>
 
-    <TableRow>
-        <TextView android:layout_width="90px"
-                  android:text="Amount"/>
-        <EditText android:id="@+id/amount"
-                  android:numeric="decimal"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_weight="1"
-                  android:hint="@string/hint_required_field"
-                  android:layout_alignParentRight="true"/>
-
-    </TableRow>
-
-    <TableRow>
-        <TextView android:layout_width="90px"
-                  android:text="Paid by"/>
-        <Button android:id="@+id/paid_by"
-                android:layout_weight="1"
-                android:text="(Required)"/>
-    </TableRow>
-
-    <View android:layout_height="2dip"
-          android:background="#FF909090"
-          android:padding="5px"/>
     
-    <TableRow android:paddingBottom="10px"
-              android:layout_width="wrap_content"
-	          android:layout_height="wrap_content">
-        <TextView android:text="Participants" />
-        <TextView android:id="@+id/participants"
-                  android:layout_width="wrap_content"
-	              android:layout_height="wrap_content"
-                  android:singleLine="false"
-                  android:width="0dip"
-                  android:textSize="20px" />
-    </TableRow>
-    
-   	<TableLayout android:layout_width="wrap_content"
-	             android:layout_height="wrap_content"
-	             android:stretchColumns="*">
-        <TableRow>    
-		    <Button android:id="@+id/edit_participants"
-	                android:text="Pick previously added"/>
-	        <Button android:id="@+id/add_participant"
-					android:text="Add Participants"/>
-		</TableRow>
+        <View android:layout_height="2dip"
+              android:background="#FF909090"
+              android:padding="5px"/>
+        <Button android:id="@+id/confirm"
+                android:text="Create"/>
+        <Button android:id="@+id/calculate"
+                android:text="Show final Settlements"/>
     </TableLayout>
-	
-
-    <View android:layout_height="2dip"
-          android:background="#FF909090"
-          android:padding="5px"/>
-    <Button android:id="@+id/confirm"
-            android:text="Create"/>
-    <Button android:id="@+id/calculate"
-            android:text="Show final Settlements"/>
-</TableLayout>
+</ScrollView>
