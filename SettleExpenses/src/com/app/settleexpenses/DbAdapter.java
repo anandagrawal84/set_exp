@@ -1,22 +1,24 @@
 package com.app.settleexpenses;
 
+import java.util.ArrayList;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import com.app.settleexpenses.domain.Event;
 import com.app.settleexpenses.domain.Expense;
 import com.app.settleexpenses.domain.Participant;
-
-import java.util.ArrayList;
 
 public class DbAdapter {
 
     public static String EVENT_TITLE = "title";
     public static String EVENT_ID = "_id";
 
+    public static String EXPENSE_ID = "_id";
     public static String EXPENSE_TITLE = "title";
     public static String EXPENSE_BY = "paid_by";
     public static String EXPENSE_AMOUNT = "amount";
@@ -101,6 +103,14 @@ public class DbAdapter {
     public boolean deleteEvent(long rowId) {
         openWritable();
         try {
+        	Cursor cursor = mDb.query("expenses", null, EXPENSE_EVENT_ID + "=" + rowId, null, null, null, null);
+            if (cursor.moveToFirst()) {
+                do {
+                	int expenseId = cursor.getInt(0);
+                    mDb.delete("participants", PARTICIPANT_EXPENSE_ID + "=" + expenseId, null);
+                    mDb.delete("expenses", EXPENSE_ID + "=" + expenseId, null);
+                } while (cursor.moveToNext());
+            }
             return mDb.delete("events", EVENT_ID + " = " + rowId, null) > 0;
         } finally {
             close();

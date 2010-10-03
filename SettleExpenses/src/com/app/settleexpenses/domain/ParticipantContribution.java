@@ -29,7 +29,7 @@ public class ParticipantContribution {
     }
 
     public boolean canAcceptFullAmount(double contribution) {
-        return !isPayer() && (Math.abs(this.contribution) >= Math.abs(contribution));
+        return !isPayer() && (Math.ceil(this.contribution) >= Math.ceil(contribution));
     }
 
     public Participant getParticipant() {

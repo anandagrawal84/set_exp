@@ -1,15 +1,16 @@
 package com.app.settleexpenses;
 
-import android.app.ListActivity;
-import android.os.Bundle;
-import android.widget.SimpleAdapter;
-import com.app.settleexpenses.domain.Event;
-import com.app.settleexpenses.domain.Expense;
-import com.app.settleexpenses.domain.Participant;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import android.app.ListActivity;
+import android.os.Bundle;
+import android.widget.SimpleAdapter;
+
+import com.app.settleexpenses.domain.Event;
+import com.app.settleexpenses.domain.Expense;
+import com.app.settleexpenses.domain.Participant;
 
 public class ShowExpenses extends ListActivity {
 

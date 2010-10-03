@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:stretchColumns="1"
+             android:padding="3px">
+
+    <TableRow>
+        <TextView android:layout_column="1"
+                  android:id="@+id/name"
+                  android:textStyle="bold"
+                  android:textSize="20px"/>
+    </TableRow>
+    <TableRow>
+        <TextView android:id="@+id/type"
+                  android:layout_column="1"
+                  android:textSize="18px"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"/>
+    </TableRow>
+    <TableRow>
+    	<TextView android:id="@+id/value"
+                  android:layout_column="1"
+                  android:singleLine="false"
+                  android:width="0dip"
+                  android:textSize="16px"/>
+
+    </TableRow>
+
+</TableLayout>
+

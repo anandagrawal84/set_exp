@@ -185,4 +185,25 @@ public class EventTest extends TestCase {
 		assertEquals(sapto.getId(), settlements.get(4).receiver().getId());
 		assertEquals(250.0, settlements.get(4).getAmount());
 	}
+	
+	public void testShouldReturnCorrectSettlementsIfSettlementsAreInFraction() {
+		ArrayList<Expense> expenses = new ArrayList<Expense>();
+		Participant anand = new Participant("12", "Anand");
+		Participant sapto = new Participant("134", "sapto");
+		Participant selva = new Participant("144", "selva");
+		
+		expenses.add(new Expense("lunch", 500, 1, anand, new ArrayList<Participant>(Arrays.asList(new Participant[] {anand, sapto, selva}))));
+		Event event = new Event(1, "Title", expenses);
+		List<Settlement> settlements = event.calculateSettlements();
+		
+		assertEquals(selva.getId(), settlements.get(0).payer().getId());
+		assertEquals(anand.getId(), settlements.get(0).receiver().getId());
+		assertEquals(166.67, settlements.get(0).getAmount());
+		
+		
+		assertEquals(sapto.getId(), settlements.get(1).payer().getId());
+		assertEquals(anand.getId(), settlements.get(1).receiver().getId());
+		assertEquals(166.67, settlements.get(1).getAmount());
+		
+	}
 }
