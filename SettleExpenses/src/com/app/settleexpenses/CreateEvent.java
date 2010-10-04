@@ -19,7 +19,7 @@ public class CreateEvent extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_event);
-        setTitle("Create Event");
+        setTitle(getString(R.string.create_event));
 
         titleText = (EditText) findViewById(R.id.title);
         final long eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
@@ -32,7 +32,7 @@ public class CreateEvent extends Activity {
             public void onClick(View view) {
                 String title = titleText.getText().toString();
                 if (title != null && title.trim().length() == 0) {
-                    Toast toast = Toast.makeText(currentActivity, "Please enter event name", Toast.LENGTH_LONG);
+                    Toast toast = Toast.makeText(currentActivity, getString(R.string.no_event_name_validation), Toast.LENGTH_LONG);
                     toast.show();
                     return;
                 }

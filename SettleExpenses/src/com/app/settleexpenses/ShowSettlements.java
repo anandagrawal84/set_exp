@@ -21,6 +21,7 @@ import com.app.settleexpenses.domain.Settlement;
 public class ShowSettlements extends ListActivity {
 	
 	private static final int SEND_SMS = 1;
+	private static final int SEND_EMAIL = 5;
 	private static final int EXIT = 2;
 	
 	private static final String PAYER = "payer";
@@ -53,6 +54,7 @@ public class ShowSettlements extends ListActivity {
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
     	menu.add(0,SEND_SMS,0,"Send SMS");
+    	menu.add(0,SEND_EMAIL,0,"Send EMAIL");
     	menu.add(0,EXIT,0,"Exit");
     	return true;
 	}
@@ -66,6 +68,11 @@ public class ShowSettlements extends ListActivity {
                 Intent sendSmsIntent = new Intent(this, SendSMS.class);
                 sendSmsIntent.putExtra(DbAdapter.EVENT_ID, eventId);
                 startActivityForResult(sendSmsIntent, 1);
+                break;
+            case SEND_EMAIL:
+                Intent sendEmailIntent = new Intent(this, SendEmail.class);
+                sendEmailIntent.putExtra(DbAdapter.EVENT_ID, eventId);
+                startActivityForResult(sendEmailIntent, 1);
                 break;
 		}
 		return false;

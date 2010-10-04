@@ -100,8 +100,7 @@ public class AddExpenses extends Activity {
 						.toString(), amount, eventId, paidBy, participants);
 
 				dbAdapter.createExpense(expense);
-				Toast toast = Toast.makeText(view.getContext(),
-						"Expense Created Successfully.", 2);
+				Toast toast = Toast.makeText(view.getContext(), getString(R.string.expense_created_successfully), 2);
 				toast.show();
 				finish();
 				startActivity(currentActivity.getIntent());
@@ -139,16 +138,16 @@ public class AddExpenses extends Activity {
 	private boolean isInValid() {
 		if (isInValid(expenseTitleText.getText().toString())
 				|| isInValid(expenseAmount.getText().toString())) {
-			showMessage("Please complete the required fields");
+			showMessage(getString(R.string.required_field_validation));
 			return true;
 		}
 		if (paidBy == null) {
-			showMessage("Please Select Payer");
+			showMessage(getString(R.string.payer_validation));
 			return true;
 		}
 
 		if (selectedParticipants().size() == 0) {
-			showMessage("Please select Participants");
+			showMessage(getString(R.string.no_participant_validation));
 			return true;
 		}
 		return false;
@@ -238,7 +237,7 @@ public class AddExpenses extends Activity {
 				if (participant != null) {
 					if (selectedParticipants().contains(participant)) {
 						Toast toast = Toast.makeText(currentActivity,
-								"Participant is already present",
+								getString(R.string.duplicate_participant_validation),
 								Toast.LENGTH_LONG);
 						toast.show();
 					} else {

@@ -36,7 +36,7 @@ public class ContactsAdapter {
  				ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID +" = ?", new String[]{id}, null);
  		while (pCur.moveToNext()) {
  			int type = pCur.getInt(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.TYPE));
- 			String typeString = android.provider.ContactsContract.CommonDataKinds.Phone.getTypeLabel(activity.getResources(), type, "asdfadf").toString();
+ 			String typeString = android.provider.ContactsContract.CommonDataKinds.Phone.getTypeLabel(activity.getResources(), type, "").toString();
  			phones.add(new Phone(pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)), 
  					typeString));
  
@@ -50,10 +50,12 @@ public class ContactsAdapter {
  		
  		Cursor emailCur = activity.getContentResolver().query( 
  				ContactsContract.CommonDataKinds.Email.CONTENT_URI, null, ContactsContract.CommonDataKinds.Email.CONTACT_ID + " = ?", new String[]{id}, null); 
- 		while (emailCur.moveToNext()) { 
- 			Email e = new Email(emailCur.getString(emailCur.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA)),
- 					emailCur.getString(emailCur.getColumnIndex(ContactsContract.CommonDataKinds.Email.TYPE)));
- 			emails.add(e);
+ 		while (emailCur.moveToNext()) {
+             int type = emailCur.getInt(emailCur.getColumnIndex(ContactsContract.CommonDataKinds.Email.TYPE));
+             String typeString = android.provider.ContactsContract.CommonDataKinds.Email.getTypeLabel(activity.getResources(), type, "").toString();
+             Email email = new Email(emailCur.getString(emailCur.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA)),
+                     typeString);
+ 			emails.add(email);
  		} 
  		emailCur.close();
  		return(emails);

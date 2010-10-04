@@ -3,5 +3,17 @@
     <string name="app_name">Total It Up</string>
     <string name="no_events">No Events Yet!!</string>
     <string name="menu_insert">Add new Event</string>
+    <string name="expense_created_successfully">Expense Created Successfully.</string>
+    <string name="sms_sent_successfully">SMS sent to contact successfully.</string>
+
+    <!-- Titles -->
+    <string name="create_event" >Create Event</string>
+
+    <!-- validation messages -->
+    <string name="no_event_name_validation">Please enter event name</string>
+    <string name="required_field_validation">Please complete the required fields</string>
+    <string name="payer_validation">Please Select Payer</string>
+    <string name="no_participant_validation">Please select Participants</string>
+    <string name="duplicate_participant_validation">Participant is already present</string>
     <string name="hint_required_field">(Required)</string>
 </resources>
