@@ -22,7 +22,7 @@
 	</application>
 
 	<uses-permission android:name="android.permission.READ_CONTACTS" />
-
-	<uses-sdk android:targetSdkVersion="2" android:minSdkVersion="2"></uses-sdk>
 	<uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
+	
+	<uses-sdk android:targetSdkVersion="2" android:minSdkVersion="2"></uses-sdk>
 </manifest> 
