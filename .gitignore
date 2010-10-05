@@ -4,3 +4,5 @@ SettleExpenses/out/
 SettleExpensesTest/bin/
 SettleExpensesTest/gen/
 SettleExpensesTest/out/
+.idea/*
+out/*

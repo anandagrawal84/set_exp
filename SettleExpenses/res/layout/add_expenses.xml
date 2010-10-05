@@ -7,7 +7,7 @@
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
                  android:layout_width="fill_parent"
-                 android:layout_height="fill_parent"
+                 android:layout_height="wrap_content"
                  android:stretchColumns="1"
                  android:padding="3px"
                  android:scrollbars="vertical">
@@ -50,17 +50,23 @@
               android:background="#FF909090"
               android:padding="5px"/>
 
-        <TableRow android:paddingBottom="10px"
+      <TableRow android:paddingBottom="10px"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content">
             <TextView android:text="Participants" />
-            <TextView android:id="@+id/participants"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:singleLine="false"
-                      android:width="0dip"
-                      android:textSize="20px" />
-        </TableRow>
+        
+	      <LinearLayout android:layout_width="wrap_content" android:id="@+id/participants_layout"
+				xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_height="wrap_content"
+				android:layout_weight="1">
+					
+	            	<ListView android:id="@+id/participants"
+	                      android:layout_width="wrap_content" 
+				          android:layout_height="wrap_content"  
+	                      android:textSize="20px" 
+	                      android:clickable="false"/>
+		  </LinearLayout>
+	  </TableRow>        
 
         <TableLayout android:layout_width="wrap_content"
                      android:layout_height="wrap_content"

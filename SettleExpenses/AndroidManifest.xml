@@ -10,7 +10,7 @@
 			</intent-filter>
 		</activity>
 
-		<activity android:name=".CreateEvent" />
+		<activity android:name=".CreateEvent" android:noHistory="true" />
 		<activity android:name=".AddExpenses" />
 		<activity android:name=".ParticipantsPicker" />
 		<activity android:name=".ShowSettlements" />

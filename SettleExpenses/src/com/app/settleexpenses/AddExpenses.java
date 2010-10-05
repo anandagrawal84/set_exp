@@ -15,9 +15,11 @@ import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.app.settleexpenses.domain.Expense;
@@ -41,7 +43,7 @@ public class AddExpenses extends Activity {
 	private List<Participant> allParticipants;
 	private Participant paidBy;
 
-	private TextView participantsText;
+	private ListView participantsText;
 	private Button paidByButton;
 	private Button editParticipantList;
 
@@ -68,7 +70,7 @@ public class AddExpenses extends Activity {
 			selections[i] = false;
 		}
 
-		participantsText = (TextView) findViewById(R.id.participants);
+		participantsText = (ListView) findViewById(R.id.participants);
 		updateParticipantList();
 
 		editParticipantList = (Button) findViewById(R.id.edit_participants);
@@ -194,10 +196,10 @@ public class AddExpenses extends Activity {
 	}
 
 	private void updateParticipantList() {
-		String selectedParticipants = participantNames(selectedParticipants())
-				.toString();
-		participantsText.setText(selectedParticipants.substring(1,
-				selectedParticipants.length() - 1));
+		List<String> participants = participantNames(selectedParticipants());
+		participantsText.setAdapter(new ArrayAdapter<String>(this, R.layout.participant, participants));
+		LinearLayout layout  = (LinearLayout)findViewById(R.id.participants_layout);
+		layout.getLayoutParams().height = 35 * participants.size();
 	}
 
 	public class DialogButtonClickHandler implements
