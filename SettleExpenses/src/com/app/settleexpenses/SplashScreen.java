@@ -13,11 +13,7 @@ public class SplashScreen extends Activity {
                  @Override
                  public void run() {
                     try {
-                       int waited = 0;
-                       while (waited < 5000) {
-                          sleep(100);
-                          waited += 100;
-                       }
+                      sleep(3000);
                     } catch (InterruptedException e) {
                        // do nothing
                     } finally {
