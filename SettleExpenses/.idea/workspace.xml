@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="804e5c0d-f2f4-450a-b3f8-7d2cef935e28" name="Default" comment="anand - edit event title">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/AddExpenses.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/AddExpenses.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/splash.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/SendSMS.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/SendSMS.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/SplashScreen.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/service/SMSService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/ShowSettlements.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/ShowSettlements.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/multi_select_container.xml" afterPath="$PROJECT_DIR$/res/layout/multi_select_container.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/ContactsAdapter.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/ContactsAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/service/SMSService.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/service/SMSService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/SendSMS.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/SendSMS.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/service/EmailService.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/service/EmailService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/service/EmailService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/SendEmail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/app/settleexpenses/SendEmail.java" afterPath="$PROJECT_DIR$/src/com/app/settleexpenses/SendEmail.java" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="SettleExpenses.iws" />
@@ -82,37 +76,28 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AddExpenses.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/AddExpenses.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="278" column="32" selection-start="8544" selection-end="8544" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SendSMS.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/SendSMS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="42" selection-start="2412" selection-end="2412" vertical-scroll-proportion="0.0">
+            <state line="52" column="5" selection-start="1651" selection-end="1950" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SendEmail.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="multi_select_container.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/multi_select_container.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="45" selection-start="686" selection-end="697" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SendEmail.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/SendEmail.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="60" selection-start="1454" selection-end="1454" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EmailService.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/service/EmailService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="51" selection-start="967" selection-end="967" vertical-scroll-proportion="0.75434244">
+            <state line="33" column="31" selection-start="1159" selection-end="1159" vertical-scroll-proportion="0.49043062">
               <folding />
             </state>
           </provider>
@@ -130,7 +115,25 @@
       <file leaf-file-name="SMSService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/service/SMSService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="8" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0">
+            <state line="13" column="0" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Participant.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/domain/Participant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="13" selection-start="106" selection-end="106" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmailService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/service/EmailService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="5" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -148,7 +151,7 @@
       <file leaf-file-name="ShowSettlements.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ShowSettlements.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="22" selection-start="1910" selection-end="1910" vertical-scroll-proportion="0.0">
+            <state line="65" column="43" selection-start="2262" selection-end="2262" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -157,7 +160,7 @@
       <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="83" selection-start="378" selection-end="378" vertical-scroll-proportion="0.0">
+            <state line="7" column="26" selection-start="384" selection-end="399" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -179,20 +182,20 @@
       <list>
         <option value="$PROJECT_DIR$/res/layout/settlement.xml" />
         <option value="$PROJECT_DIR$/res/layout/add_expenses.xml" />
-        <option value="$PROJECT_DIR$/res/layout/multi_select_container.xml" />
         <option value="$PROJECT_DIR$/res/layout/multi_select_row.xml" />
         <option value="$PROJECT_DIR$/src/com/app/settleexpenses/AddExpenses.java" />
         <option value="$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java" />
-        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/service/SMSService.java" />
         <option value="$PROJECT_DIR$/src/com/app/settleexpenses/SplashScreen.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/layout/splash.xml" />
-        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/ShowSettlements.java" />
-        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/SendSMS.java" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/SendEmail.java" />
         <option value="$PROJECT_DIR$/src/com/app/settleexpenses/ContactsAdapter.java" />
         <option value="$PROJECT_DIR$/src/com/app/settleexpenses/service/EmailService.java" />
+        <option value="$PROJECT_DIR$/res/layout/multi_select_container.xml" />
+        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/ShowSettlements.java" />
+        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/service/SMSService.java" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/SendSMS.java" />
+        <option value="$PROJECT_DIR$/src/com/app/settleexpenses/SendEmail.java" />
       </list>
     </option>
   </component>
@@ -231,11 +234,75 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Favorites" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SettleExpenses" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android 2.2 Platform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SettleExpenses" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android 2.2 Platform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SettleExpenses" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android 2.2 Platform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="SettleExpenses" />
@@ -370,6 +437,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Favorites" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -585,14 +654,14 @@
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32478634" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32478634" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39941692" sideWeight="0.66096866" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3469388" sideWeight="0.66524214" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3586006" sideWeight="0.66524214" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3988604" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32763532" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32478634" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -656,21 +725,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/domain/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="22" selection-start="1016" selection-end="1016" vertical-scroll-proportion="0.03782506" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/CreateEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="48" selection-start="1348" selection-end="1348" vertical-scroll-proportion="0.7537994" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ParticipantsPicker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="29" selection-start="985" selection-end="985" vertical-scroll-proportion="0.36474165" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ShowExpenses.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="38" selection-start="1750" selection-end="1769" vertical-scroll-proportion="0.63246554" />
@@ -696,9 +750,9 @@
         <state line="278" column="32" selection-start="8544" selection-end="8544" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/service/SMSService.java">
+    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ContactsAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="8" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0" />
+        <state line="55" column="13" selection-start="2375" selection-end="2375" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
@@ -708,40 +762,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ShowSettlements.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="22" selection-start="1910" selection-end="1910" vertical-scroll-proportion="0.0" />
+        <state line="65" column="43" selection-start="2262" selection-end="2262" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/SendSMS.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/multi_select_container.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="42" selection-start="2412" selection-end="2412" vertical-scroll-proportion="0.0">
+        <state line="14" column="45" selection-start="686" selection-end="697" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Developer/SDKs/android-sdk-mac_86/platforms/android-8/android.jar!/android/view/View.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="644" column="44" selection-start="28679" selection-end="28715" vertical-scroll-proportion="0.41688654">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/domain/Participant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="106" selection-end="106" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/service/SMSService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="83" selection-start="378" selection-end="378" vertical-scroll-proportion="0.0">
+        <state line="7" column="26" selection-start="384" selection-end="399" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/SendEmail.java">
+    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/SendSMS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="60" selection-start="1454" selection-end="1454" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/ContactsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="13" selection-start="2375" selection-end="2375" vertical-scroll-proportion="0.0">
+        <state line="52" column="5" selection-start="1651" selection-end="1950" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/service/EmailService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="51" selection-start="967" selection-end="967" vertical-scroll-proportion="0.75434244">
+        <state line="14" column="5" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/app/settleexpenses/SendEmail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="31" selection-start="1159" selection-end="1159" vertical-scroll-proportion="0.49043062">
           <folding />
         </state>
       </provider>

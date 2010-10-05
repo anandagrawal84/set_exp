@@ -1,5 +1,7 @@
 package com.app.settleexpenses;
 
+import com.app.settleexpenses.service.DbAdapter;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ListActivity;

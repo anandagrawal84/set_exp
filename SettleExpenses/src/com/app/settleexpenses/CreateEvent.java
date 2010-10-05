@@ -1,5 +1,7 @@
 package com.app.settleexpenses;
 
+import com.app.settleexpenses.service.DbAdapter;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

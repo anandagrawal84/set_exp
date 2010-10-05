@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import android.content.ContentValues;
 
-import com.app.settleexpenses.DbAdapter;
+import com.app.settleexpenses.service.DbAdapter;
 
 public class Expense {
 

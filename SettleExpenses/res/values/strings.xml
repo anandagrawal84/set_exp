@@ -4,7 +4,8 @@
     <string name="no_events">No Events Yet!!</string>
     <string name="menu_insert">Add new Event</string>
     <string name="expense_created_successfully">Expense Created Successfully.</string>
-    <string name="sms_sent_successfully">SMS sent to contact successfully.</string>
+    <string name="sms_sent_successfully">SMS sent to contact.</string>
+    <string name="sms_sent_to_all">SMS sent to all contacts.</string>
 
     <!-- Titles -->
     <string name="create_event" >Create Event</string>

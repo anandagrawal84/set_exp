@@ -5,18 +5,15 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.app.ListActivity;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
-import android.telephony.SmsManager;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.CheckBox;
 import android.widget.SimpleAdapter;
 
 import com.app.settleexpenses.domain.Event;
-import com.app.settleexpenses.domain.Participant;
 import com.app.settleexpenses.domain.Settlement;
+import com.app.settleexpenses.service.DbAdapter;
 
 public class ShowSettlements extends ListActivity {
 	

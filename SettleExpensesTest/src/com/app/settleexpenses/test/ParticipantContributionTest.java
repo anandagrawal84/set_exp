@@ -46,9 +46,14 @@ public class ParticipantContributionTest extends TestCase {
 		assertEquals(true, participantContribution.canAcceptFullAmount(-100));
 	}
 	
-	public void testShouldReturnFalseIfParticipantCannotAcceptFullAmount() {
+	public void testShouldReturnTrueIfParticipantCanAcceptFullAmount() {
 		ParticipantContribution participantContribution = new ParticipantContribution(participant, 200);
-		assertEquals(false, participantContribution.canAcceptFullAmount(-500));
+		assertEquals(true, participantContribution.canAcceptFullAmount(-500));
+	}
+	
+	public void testShouldReturnTrueIfParticipantIsPayingExactSameAmount() {
+		ParticipantContribution participantContribution = new ParticipantContribution(participant, 200);
+		assertEquals(true, participantContribution.canAcceptFullAmount(-200));
 	}
 	
 	public void testShouldReturnFalseIfParticipantIsAPayer() {

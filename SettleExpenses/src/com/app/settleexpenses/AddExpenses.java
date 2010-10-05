@@ -1,8 +1,6 @@
 package com.app.settleexpenses;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import android.app.Activity;
@@ -22,10 +20,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.app.settleexpenses.domain.Email;
 import com.app.settleexpenses.domain.Expense;
 import com.app.settleexpenses.domain.Participant;
-import com.app.settleexpenses.domain.Phone;
+import com.app.settleexpenses.service.DbAdapter;
 
 public class AddExpenses extends Activity {
 
@@ -89,11 +86,9 @@ public class AddExpenses extends Activity {
 				if (isInValid())
 					return;
 
-				DbAdapter dbAdapter = new DbAdapter(view.getContext(),
-						new ContactsAdapter(currentActivity));
+				DbAdapter dbAdapter = new DbAdapter(view.getContext(), new ContactsAdapter(currentActivity));
 
-				float amount = Float.parseFloat(expenseAmount.getText()
-						.toString());
+				float amount = Float.parseFloat(expenseAmount.getText().toString());
 				ArrayList<Participant> participants = selectedParticipants();
 
 				Expense expense = new Expense(expenseTitleText.getText()

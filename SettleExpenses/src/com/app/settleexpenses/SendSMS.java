@@ -1,21 +1,23 @@
 package com.app.settleexpenses;
 
-import android.app.ListActivity;
-import android.os.Bundle;
-import android.telephony.SmsManager;
-import android.util.Log;
-import android.view.View;
-import android.widget.*;
-import android.widget.AdapterView.OnItemClickListener;
-import com.app.settleexpenses.domain.Event;
-import com.app.settleexpenses.domain.Participant;
-import com.app.settleexpenses.domain.Phone;
-import com.app.settleexpenses.domain.Settlement;
-import com.app.settleexpenses.service.SMSService;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import android.app.ListActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.SimpleAdapter;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
+
+import com.app.settleexpenses.domain.Event;
+import com.app.settleexpenses.domain.Participant;
+import com.app.settleexpenses.domain.Phone;
+import com.app.settleexpenses.service.DbAdapter;
+import com.app.settleexpenses.service.SMSService;
 
 public class SendSMS extends ListActivity {
 
@@ -24,6 +26,7 @@ public class SendSMS extends ListActivity {
     protected static final String VALUE = "VALUE";
 
     protected Event event;
+    private Button sendToAll;
     private List<HashMap<String, String>> list;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,17 @@ public class SendSMS extends ListActivity {
                 new String[]{NAME, TYPE, VALUE},
                 new int[]{R.id.name, R.id.type, R.id.value}));
         getListView().setOnItemClickListener(onClickListener());
+        sendToAll = (Button)findViewById(R.id.send_to_all);
+        sendToAll.setOnClickListener(sendToAllClickListener());
+    }
+
+    protected View.OnClickListener sendToAllClickListener() {
+        return new View.OnClickListener(){
+            public void onClick(View view) {
+                new SMSService().send(event);
+                showInformationMessage(getString(R.string.sms_sent_to_all));
+            }
+        };
     }
 
     protected List<HashMap<String, String>> viewMap() {
@@ -61,11 +75,15 @@ public class SendSMS extends ListActivity {
                                     long id) {
                 String number = list.get(position).get(VALUE);
                 new SMSService().send(number, event);
-                Toast toast = Toast.makeText(view.getContext(), getString(R.string.sms_sent_successfully), 2 );
-                toast.show();
+                showInformationMessage(getString(R.string.sms_sent_successfully));
             }
 
         };
+    }
+
+    private void showInformationMessage(String message) {
+        Toast toast = Toast.makeText(this.getApplicationContext(), message, 2 );
+                toast.show();
     }
 }
 

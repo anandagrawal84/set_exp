@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
       android:layout_width="wrap_content"
     android:layout_height="wrap_content">
+    <Button android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:id="@+id/send_to_all"
+        android:text="Send to all" android:layout_alignParentBottom="true" />
     <ListView android:id="@id/android:list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:choiceMode="multipleChoice"
-        android:clickable="true"/>
-</LinearLayout>
+        android:clickable="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/send_to_all"/>
+
+</RelativeLayout>
