@@ -9,6 +9,18 @@
 
     <!-- Titles -->
     <string name="create_event" >Create Event</string>
+    <string name="add_expenses">Add Expense</string>
+    <string name="participants_list">Participants</string>
+
+    <!-- Button titles -->
+    <string name="show_settlements">Show final settlements</string>
+    <string name="edit_event">Edit Event</string>
+    <string name="view_expenses">View Expenses</string>    
+    <string name="delete_event">Delete Event</string>
+    <string name="edit_participants">Edit participants</string>
+    <string name="send_sms">Send SMS</string>
+    <string name="send_email">Send Email</string>
+    <string name="exit">Exit</string>
 
     <!-- validation messages -->
     <string name="no_event_name_validation">Please enter event name</string>

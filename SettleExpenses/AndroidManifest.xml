@@ -12,7 +12,6 @@
 
 		<activity android:name=".CreateEvent" android:noHistory="true" />
 		<activity android:name=".AddExpenses" />
-		<activity android:name=".ParticipantsPicker" />
 		<activity android:name=".ShowSettlements" />
 		<activity android:name=".ShowExpenses" />
 		<activity android:name=".SendSMS" />

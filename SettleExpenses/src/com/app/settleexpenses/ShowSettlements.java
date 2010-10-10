@@ -16,17 +16,17 @@ import com.app.settleexpenses.domain.Settlement;
 import com.app.settleexpenses.service.DbAdapter;
 
 public class ShowSettlements extends ListActivity {
-	
+
 	private static final int SEND_SMS = 1;
 	private static final int SEND_EMAIL = 5;
 	private static final int EXIT = 2;
-	
+
 	private static final String PAYER = "payer";
     private static final String PAY_TO = "payTo";
     private static final String AMOUNT = "amount";
-	
+
     private long eventId;
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,16 +47,14 @@ public class ShowSettlements extends ListActivity {
                 new String[]{PAYER, AMOUNT, PAY_TO},
                 new int[]{R.id.payer, R.id.amount, R.id.payTo}));
     }
-    
+
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-    	menu.add(0,SEND_SMS,0,"Send SMS");
-    	menu.add(0,SEND_EMAIL,0,"Send EMAIL");
-    	menu.add(0,EXIT,0,"Exit");
-    	return true;
+        menu.add(0, SEND_SMS, 0, getString(R.string.send_sms));
+        menu.add(0, SEND_EMAIL, 0, getString(R.string.send_email));
+        menu.add(0, EXIT, 0, getString(R.string.exit));
+        return true;
 	}
-
-
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {

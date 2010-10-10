@@ -51,7 +51,7 @@ public class AddExpenses extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_expenses);
-		setTitle("Add Expense");
+		setTitle(getString(R.string.add_expenses));
 
 		expenseTitleText = (EditText) findViewById(R.id.title);
 		expenseAmount = (EditText) findViewById(R.id.amount);
@@ -184,7 +184,7 @@ public class AddExpenses extends Activity {
 		String[] participants = allParticipantNames
 				.toArray(new String[allParticipantNames.size()]);
 		newSelections = selections;
-		return new AlertDialog.Builder(this).setTitle("Participants")
+		return new AlertDialog.Builder(this).setTitle(getString(R.string.participants_list))
 				.setMultiChoiceItems(participants, newSelections,
 						new DialogInterface.OnMultiChoiceClickListener() {
 							public void onClick(
@@ -210,7 +210,7 @@ public class AddExpenses extends Activity {
 			case DialogInterface.BUTTON_POSITIVE:
 				selections = newSelections;
 				editParticipantList.setEnabled(true);
-				editParticipantList.setText("Edit participants");
+				editParticipantList.setText(getString(R.string.edit_participants));
 				updateParticipantList();
 				break;
 			}
@@ -250,7 +250,7 @@ public class AddExpenses extends Activity {
 							result[result.length - 1] = true;
 							selections = result;
 							editParticipantList.setEnabled(true);
-							editParticipantList.setText("Edit participants");
+							editParticipantList.setText(getString(R.string.edit_participants));
 						}
 						updateParticipantList();
 					}

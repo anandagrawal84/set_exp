@@ -26,7 +26,6 @@ public class SendSMS extends ListActivity {
     protected static final String VALUE = "VALUE";
 
     protected Event event;
-    private Button sendToAll;
     private List<HashMap<String, String>> list;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -40,7 +39,7 @@ public class SendSMS extends ListActivity {
                 new String[]{NAME, TYPE, VALUE},
                 new int[]{R.id.name, R.id.type, R.id.value}));
         getListView().setOnItemClickListener(onClickListener());
-        sendToAll = (Button)findViewById(R.id.send_to_all);
+        Button sendToAll = (Button)findViewById(R.id.send_to_all);
         sendToAll.setOnClickListener(sendToAllClickListener());
     }
 

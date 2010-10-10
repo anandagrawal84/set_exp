@@ -60,12 +60,4 @@ public class ContactsAdapter {
  		emailCur.close();
  		return(emails);
  	}
-
-    public List<Participant> find(List<String> ids) {
-        ArrayList<Participant> participants = new ArrayList<Participant>();
-        for (String id : ids) {
-            participants.add(find(id));
-        }
-        return participants;
-    }
 }

@@ -44,10 +44,10 @@ public class ShowExpenses extends ListActivity {
 
     private String flattenParticipants(ArrayList<Participant> participants) {
     	if (participants.size() == 0) return "";
-        String result = "";
+        ArrayList<String> names = new ArrayList<String>();
         for (Participant participant : participants) {
-            result += (participant.getName() + ", ");
+            names.add(participant.getName());
         }
-        return result.substring(0, result.length() - 2);
+        return names.toString();
     }
 }
