@@ -30,7 +30,20 @@ public class CreateEvent extends Activity {
 
         Button confirmButton = (Button) findViewById(R.id.confirm);
 
-        confirmButton.setOnClickListener(new View.OnClickListener() {
+        confirmButton.setOnClickListener(createEventHandler(eventId));
+    }
+
+    private String eventTitle(long eventId) {
+        DbAdapter dbAdapter = new DbAdapter(currentActivity, new ContactsAdapter(currentActivity));
+        String title = "";
+        if(eventId != -1) {
+            title = dbAdapter.getEventById(eventId).getTitle();
+        }
+        return title;
+    }
+
+    private View.OnClickListener createEventHandler(final long eventId) {
+        return new View.OnClickListener() {
 
             public void onClick(View view) {
                 String title = titleText.getText().toString();
@@ -49,15 +62,6 @@ public class CreateEvent extends Activity {
                 startActivityForResult(intent, ACTIVITY_ADD_EXPENSE);
             }
 
-        });
-    }
-
-    private String eventTitle(long eventId) {
-        DbAdapter dbAdapter = new DbAdapter(currentActivity, new ContactsAdapter(currentActivity));
-        String title = "";
-        if(eventId != -1) {
-            title = dbAdapter.getEventById(eventId).getTitle();
-        }
-        return title;
+        };
     }
 }
