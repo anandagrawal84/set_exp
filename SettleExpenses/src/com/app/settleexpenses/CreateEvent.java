@@ -1,5 +1,6 @@
 package com.app.settleexpenses;
 
+import com.app.settleexpenses.service.ContactsAdapter;
 import com.app.settleexpenses.service.DbAdapter;
 
 import android.app.Activity;

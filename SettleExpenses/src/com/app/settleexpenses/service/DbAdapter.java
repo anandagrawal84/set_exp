@@ -9,7 +9,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.app.settleexpenses.ContactsAdapter;
 import com.app.settleexpenses.domain.Event;
 import com.app.settleexpenses.domain.Expense;
 import com.app.settleexpenses.domain.Participant;

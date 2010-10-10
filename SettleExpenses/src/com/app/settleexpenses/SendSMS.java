@@ -16,6 +16,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import com.app.settleexpenses.domain.Event;
 import com.app.settleexpenses.domain.Participant;
 import com.app.settleexpenses.domain.Phone;
+import com.app.settleexpenses.service.ContactsAdapter;
 import com.app.settleexpenses.service.DbAdapter;
 import com.app.settleexpenses.service.SMSService;
 

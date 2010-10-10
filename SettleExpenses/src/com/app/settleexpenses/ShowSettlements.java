@@ -13,6 +13,7 @@ import android.widget.SimpleAdapter;
 
 import com.app.settleexpenses.domain.Event;
 import com.app.settleexpenses.domain.Settlement;
+import com.app.settleexpenses.service.ContactsAdapter;
 import com.app.settleexpenses.service.DbAdapter;
 
 public class ShowSettlements extends ListActivity {

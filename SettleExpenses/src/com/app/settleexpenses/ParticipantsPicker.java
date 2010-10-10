@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.app.settleexpenses.domain.Participant;
+import com.app.settleexpenses.service.ContactsAdapter;
 import com.app.settleexpenses.service.DbAdapter;
 
 import java.util.ArrayList;

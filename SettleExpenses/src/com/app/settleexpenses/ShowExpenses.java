@@ -11,6 +11,7 @@ import android.widget.SimpleAdapter;
 import com.app.settleexpenses.domain.Event;
 import com.app.settleexpenses.domain.Expense;
 import com.app.settleexpenses.domain.Participant;
+import com.app.settleexpenses.service.ContactsAdapter;
 import com.app.settleexpenses.service.DbAdapter;
 
 public class ShowExpenses extends ListActivity {

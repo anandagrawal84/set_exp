@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.app.settleexpenses.domain.Expense;
 import com.app.settleexpenses.domain.Participant;
+import com.app.settleexpenses.service.ContactsAdapter;
 import com.app.settleexpenses.service.DbAdapter;
 
 public class AddExpenses extends Activity {
