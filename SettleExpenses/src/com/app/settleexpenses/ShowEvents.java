@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
-public class SettleExpenses extends ListActivity {
+public class ShowEvents extends ListActivity {
     private static final int ACTIVITY_CREATE = 0;
 
     private Activity currentActivity = this;
@@ -78,7 +78,7 @@ public class SettleExpenses extends ListActivity {
                         break;
                     case 3:
                         mDbHelper.deleteEvent(eventId);
-                        Toast.makeText(getApplicationContext(), "Event is deleted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.event_deleted), Toast.LENGTH_SHORT).show();
                         fillData();
                         break;
                 }

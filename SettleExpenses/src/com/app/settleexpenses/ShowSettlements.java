@@ -59,19 +59,19 @@ public class ShowSettlements extends ListActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()){
-			case SEND_SMS:
-                Intent sendSmsIntent = new Intent(this, SendSMS.class);
-                sendSmsIntent.putExtra(DbAdapter.EVENT_ID, eventId);
-                startActivityForResult(sendSmsIntent, 1);
-                break;
-            case SEND_EMAIL:
-                Intent sendEmailIntent = new Intent(this, SendEmail.class);
-                sendEmailIntent.putExtra(DbAdapter.EVENT_ID, eventId);
-                startActivityForResult(sendEmailIntent, 1);
-                break;
-		}
+        Class aClass = menuOptionHandler().get(item.getItemId());
+        if(aClass == null) return false;
+        Intent intent = new Intent(this, aClass);
+        intent.putExtra(DbAdapter.EVENT_ID, eventId);
+        startActivityForResult(intent, 1);
 		return false;
 	}
+
+    private HashMap<Integer, Class> menuOptionHandler() {
+        HashMap<Integer, Class> menuOptionResult = new HashMap<Integer, Class>();
+        menuOptionResult.put(SEND_SMS, SendSMS.class);
+        menuOptionResult.put(SEND_EMAIL, SendEmail.class);
+        return menuOptionResult;
+    }
 
 }

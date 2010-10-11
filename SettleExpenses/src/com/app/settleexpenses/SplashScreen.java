@@ -20,7 +20,7 @@ public class SplashScreen extends Activity {
                        finish();
                        Intent i = new Intent();
                        i.setClassName("com.app.settleexpenses",
-                                      "com.app.settleexpenses.SettleExpenses");
+                                      "com.app.settleexpenses.ShowEvents");
                        startActivity(i);
                     }
                  }

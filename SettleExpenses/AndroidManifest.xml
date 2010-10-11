@@ -16,12 +16,12 @@
 		<activity android:name=".ShowExpenses" />
 		<activity android:name=".SendSMS" />
 		<activity android:name=".SendEmail" />
-		<activity android:name=".SettleExpenses" />
+		<activity android:name=".ShowEvents" />
 
 	</application>
 
 	<uses-permission android:name="android.permission.READ_CONTACTS" />
-	<uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
+	<uses-permission android:name="android.permission.SEND_SMS" />
 	
-	<uses-sdk android:targetSdkVersion="2" android:minSdkVersion="2"></uses-sdk>
+	<uses-sdk android:targetSdkVersion="2" android:minSdkVersion="2" />
 </manifest> 

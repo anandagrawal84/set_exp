@@ -6,6 +6,7 @@
     <string name="expense_created_successfully">Expense Created Successfully.</string>
     <string name="sms_sent_successfully">SMS sent to contact.</string>
     <string name="sms_sent_to_all">SMS sent to all contacts.</string>
+    <string name="event_deleted">Event is deleted.</string>
 
     <!-- Titles -->
     <string name="create_event" >Create Event</string>

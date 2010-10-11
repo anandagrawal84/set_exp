@@ -47,11 +47,7 @@ public class CreateEvent extends Activity {
 
             public void onClick(View view) {
                 String title = titleText.getText().toString();
-                if (title != null && title.trim().length() == 0) {
-                    Toast toast = Toast.makeText(currentActivity, getString(R.string.no_event_name_validation), Toast.LENGTH_LONG);
-                    toast.show();
-                    return;
-                }
+                if (isInvalid(title)) return;
 
                 DbAdapter dbAdapter = new DbAdapter(currentActivity, new ContactsAdapter(currentActivity));
 
@@ -63,5 +59,14 @@ public class CreateEvent extends Activity {
             }
 
         };
+    }
+
+    private boolean isInvalid(String title) {
+        if (title != null && title.trim().length() == 0) {
+            Toast toast = Toast.makeText(currentActivity, getString(R.string.no_event_name_validation), Toast.LENGTH_LONG);
+            toast.show();
+            return true;
+        }
+        return false;
     }
 }
