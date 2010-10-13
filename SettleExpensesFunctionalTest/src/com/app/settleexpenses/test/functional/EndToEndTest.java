@@ -16,6 +16,7 @@ public class EndToEndTest extends ActivityInstrumentationTestCase2<ShowEvents>{
 	
 	public void setUp() {
 		solo = new Solo(getInstrumentation(), getActivity());
+		new ContactsBuilder(getActivity()).addNewContact("Anand", 1, "123456", "email", "a@a.com", 1);
 	}
 	
 	@Smoke
