@@ -37,8 +37,8 @@ public class AddExpenses extends Activity {
 
 	private static final int PICK_CONTACT = 0;
 	private static final int PICK_PAID_BY = 1;
-	private static final int SHOW_EXPENSES = 1;
-	private static final int SHOW_SETTLEMENTS = 5;
+	private static final int SHOW_EXPENSES = 6;
+	private static final int SHOW_SETTLEMENTS = 7;
 
 	private EditText expenseTitleText;
 	private EditText expenseAmount;

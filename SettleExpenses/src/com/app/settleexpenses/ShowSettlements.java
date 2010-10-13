@@ -8,7 +8,9 @@ import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.app.settleexpenses.domain.Event;
 import com.app.settleexpenses.domain.Settlement;
@@ -37,6 +39,11 @@ public class ShowSettlements extends ListActivity {
         IDbAdapter mDbHelper = ServiceLocator.getDbAdapter();
         eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
         Event event = mDbHelper.getEventById(eventId);
+        
+        View header = getLayoutInflater().inflate(R.layout.heading, getListView(), false);
+        ((TextView)header.findViewById(R.id.heading)).setText(event.getTitle());
+        getListView().addHeaderView(header);
+        
         List<Settlement> settlements = event.calculateSettlements();
         List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
         for (Settlement settlement : settlements) {
