@@ -7,7 +7,6 @@ import android.database.AbstractCursor;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.ListView;
 
-import com.app.settleexpenses.R;
 import com.app.settleexpenses.ShowEvents;
 import com.app.settleexpenses.service.IDbAdapter;
 import com.app.settleexpenses.service.ServiceLocator;
