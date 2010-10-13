@@ -13,7 +13,7 @@ import com.app.settleexpenses.domain.Event;
 import com.app.settleexpenses.domain.Expense;
 import com.app.settleexpenses.domain.Participant;
 
-public class DbAdapter {
+public class DbAdapter implements IDbAdapter {
 
     public static String EVENT_TITLE = "title";
     public static String EVENT_ID = "_id";
@@ -68,23 +68,39 @@ public class DbAdapter {
         this.contactsProvider = contactsProvider;
     }
 
+    public DbAdapter() {
+    }
+    
+    /* (non-Javadoc)
+	 * @see com.app.settleexpenses.service.IDbAdapter#open()
+	 */
     public DbAdapter open() throws SQLException {
         mDbHelper = new DatabaseHelper(mCtx);
         mDb = mDbHelper.getReadableDatabase();
         return this;
     }
 
-    public DbAdapter openWritable() throws SQLException {
+    /* (non-Javadoc)
+	 * @see com.app.settleexpenses.service.IDbAdapter#openWritable()
+	 */
+    public IDbAdapter openWritable() throws SQLException {
         mDbHelper = new DatabaseHelper(mCtx);
         mDb = mDbHelper.getWritableDatabase();
         return this;
     }
 
-    public void close() {
+    /* (non-Javadoc)
+	 * @see com.app.settleexpenses.service.IDbAdapter#close()
+	 */
+    public boolean close() {
         mDbHelper.close();
+        return true;
     }
 
 
+    /* (non-Javadoc)
+	 * @see com.app.settleexpenses.service.IDbAdapter#createOrUpdateEvent(long, java.lang.String)
+	 */
     public long createOrUpdateEvent(long eventId, String title) {
         openWritable();
         try {
@@ -100,6 +116,9 @@ public class DbAdapter {
         return eventId;
     }
 
+    /* (non-Javadoc)
+	 * @see com.app.settleexpenses.service.IDbAdapter#deleteEvent(long)
+	 */
     public boolean deleteEvent(long rowId) {
         openWritable();
         try {
@@ -117,10 +136,16 @@ public class DbAdapter {
         }
     }
 
+    /* (non-Javadoc)
+	 * @see com.app.settleexpenses.service.IDbAdapter#fetchAllEvents()
+	 */
     public Cursor fetchAllEvents() {
         return mDb.query("events", new String[]{EVENT_ID, EVENT_TITLE}, null, null, null, null, null);
     }
 
+    /* (non-Javadoc)
+	 * @see com.app.settleexpenses.service.IDbAdapter#getEventById(long)
+	 */
     public Event getEventById(long eventId) {
         open();
         Cursor cursor = null;
@@ -160,6 +185,9 @@ public class DbAdapter {
         return participants;
     }
 
+    /* (non-Javadoc)
+	 * @see com.app.settleexpenses.service.IDbAdapter#createExpense(com.app.settleexpenses.domain.Expense)
+	 */
     public long createExpense(Expense expense) {
         openWritable();
         try {

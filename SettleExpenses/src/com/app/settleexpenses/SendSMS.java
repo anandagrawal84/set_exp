@@ -16,8 +16,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import com.app.settleexpenses.domain.Event;
 import com.app.settleexpenses.domain.Participant;
 import com.app.settleexpenses.domain.Phone;
-import com.app.settleexpenses.service.ContactsAdapter;
 import com.app.settleexpenses.service.DbAdapter;
+import com.app.settleexpenses.service.IDbAdapter;
 import com.app.settleexpenses.service.SMSService;
 import com.app.settleexpenses.service.ServiceLocator;
 
@@ -33,7 +33,7 @@ public class SendSMS extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.multi_select_container);
-        DbAdapter mDbHelper = ServiceLocator.getDbAdapter();
+        IDbAdapter mDbHelper = ServiceLocator.getDbAdapter();
         event = mDbHelper.getEventById(getIntent().getLongExtra(DbAdapter.EVENT_ID, -1));
 
         list = viewMap();

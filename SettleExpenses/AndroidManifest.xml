@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.app.settleexpenses" android:versionCode="3"
 	android:versionName="2.0">
-	<application android:icon="@drawable/icon" android:label="@string/app_name">
+	<application android:icon="@drawable/icon" android:label="@string/app_name" android:name=".service.ServiceLocator">
 		<activity android:name=".SplashScreen" android:label="@string/app_name" android:screenOrientation="portrait">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />

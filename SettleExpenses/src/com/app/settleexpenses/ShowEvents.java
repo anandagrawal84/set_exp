@@ -1,6 +1,7 @@
 package com.app.settleexpenses;
 
-import android.app.Activity;
+import java.util.HashMap;
+
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
@@ -10,19 +11,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+
 import com.app.settleexpenses.handler.ActionHandler;
 import com.app.settleexpenses.handler.ActivityTransitionActionHandler;
 import com.app.settleexpenses.handler.DeleteEventActionHandler;
-import com.app.settleexpenses.service.ContactsAdapter;
 import com.app.settleexpenses.service.DbAdapter;
+import com.app.settleexpenses.service.IDbAdapter;
 import com.app.settleexpenses.service.ServiceLocator;
-
-import java.util.HashMap;
 
 public class ShowEvents extends ListActivity {
     private static final int ACTIVITY_CREATE = 0;
 
-    private DbAdapter mDbHelper;
+    private IDbAdapter mDbHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

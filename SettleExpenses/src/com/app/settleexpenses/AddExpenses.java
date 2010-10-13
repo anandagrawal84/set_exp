@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.app.settleexpenses.domain.Expense;
 import com.app.settleexpenses.domain.Participant;
 import com.app.settleexpenses.service.DbAdapter;
+import com.app.settleexpenses.service.IDbAdapter;
 import com.app.settleexpenses.service.ServiceLocator;
 
 public class AddExpenses extends Activity {
@@ -61,7 +62,7 @@ public class AddExpenses extends Activity {
 		Button addParticipantButton = (Button) findViewById(R.id.add_participant);
 
         final long eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
-        DbAdapter dbAdapter = ServiceLocator.getDbAdapter();
+        IDbAdapter dbAdapter = ServiceLocator.getDbAdapter();
         allParticipants = dbAdapter.getEventById(eventId).getParticipants();
 		allParticipantNames = participantNames(allParticipants);
 

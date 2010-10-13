@@ -4,5 +4,8 @@ SettleExpenses/out/
 SettleExpensesTest/bin/
 SettleExpensesTest/gen/
 SettleExpensesTest/out/
+SettleExpensesFunctionalTest/bin/
+SettleExpensesFunctionalTest/gen/
+SettleExpensesFunctionalTest/out/
 .idea/*
 out/*

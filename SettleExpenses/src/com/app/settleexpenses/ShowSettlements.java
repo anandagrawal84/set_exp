@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.app.ListActivity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,8 +14,8 @@ import com.app.settleexpenses.domain.Event;
 import com.app.settleexpenses.domain.Settlement;
 import com.app.settleexpenses.handler.ActionHandler;
 import com.app.settleexpenses.handler.ActivityTransitionActionHandler;
-import com.app.settleexpenses.service.ContactsAdapter;
 import com.app.settleexpenses.service.DbAdapter;
+import com.app.settleexpenses.service.IDbAdapter;
 import com.app.settleexpenses.service.ServiceLocator;
 
 public class ShowSettlements extends ListActivity {
@@ -35,7 +34,7 @@ public class ShowSettlements extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_settlements);
-        DbAdapter mDbHelper = ServiceLocator.getDbAdapter();
+        IDbAdapter mDbHelper = ServiceLocator.getDbAdapter();
         eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
         Event event = mDbHelper.getEventById(eventId);
         List<Settlement> settlements = event.calculateSettlements();

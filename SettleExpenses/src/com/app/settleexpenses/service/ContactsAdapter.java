@@ -2,7 +2,6 @@ package com.app.settleexpenses.service;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.database.Cursor;

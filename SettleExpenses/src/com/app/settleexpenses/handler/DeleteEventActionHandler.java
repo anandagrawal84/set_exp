@@ -1,10 +1,10 @@
 package com.app.settleexpenses.handler;
 
 import android.widget.Toast;
+
 import com.app.settleexpenses.R;
 import com.app.settleexpenses.ShowEvents;
-import com.app.settleexpenses.service.ContactsAdapter;
-import com.app.settleexpenses.service.DbAdapter;
+import com.app.settleexpenses.service.IDbAdapter;
 import com.app.settleexpenses.service.ServiceLocator;
 
 public class DeleteEventActionHandler implements ActionHandler {
@@ -19,7 +19,7 @@ public class DeleteEventActionHandler implements ActionHandler {
 
 
     public void execute() {
-        DbAdapter dbHelper = ServiceLocator.getDbAdapter();
+        IDbAdapter dbHelper = ServiceLocator.getDbAdapter();
         dbHelper.deleteEvent(eventId);
         Toast.makeText(currentActivity.getApplicationContext(), currentActivity.getString(R.string.event_deleted), Toast.LENGTH_SHORT).show();
     }
