@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.app.settleexpenses.service.ServiceLocator;
 
 
 public class CreateEvent extends Activity {
@@ -34,7 +35,7 @@ public class CreateEvent extends Activity {
     }
 
     private String eventTitle(long eventId) {
-        DbAdapter dbAdapter = new DbAdapter(currentActivity, new ContactsAdapter(currentActivity));
+        DbAdapter dbAdapter = ServiceLocator.getDbAdapter();
         String title = "";
         if(eventId != -1) {
             title = dbAdapter.getEventById(eventId).getTitle();
@@ -49,8 +50,7 @@ public class CreateEvent extends Activity {
                 String title = titleText.getText().toString();
                 if (isInvalid(title)) return;
 
-                DbAdapter dbAdapter = new DbAdapter(currentActivity, new ContactsAdapter(currentActivity));
-
+                DbAdapter dbAdapter = ServiceLocator.getDbAdapter();
                 long newEventId = dbAdapter.createOrUpdateEvent(eventId, title);
 
                 Intent intent = new Intent(currentActivity, AddExpenses.class);

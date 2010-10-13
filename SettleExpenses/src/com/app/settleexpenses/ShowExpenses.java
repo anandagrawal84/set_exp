@@ -13,6 +13,7 @@ import com.app.settleexpenses.domain.Expense;
 import com.app.settleexpenses.domain.Participant;
 import com.app.settleexpenses.service.ContactsAdapter;
 import com.app.settleexpenses.service.DbAdapter;
+import com.app.settleexpenses.service.ServiceLocator;
 
 public class ShowExpenses extends ListActivity {
 
@@ -26,7 +27,7 @@ public class ShowExpenses extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_expenses);
 
-        DbAdapter mDbHelper = new DbAdapter(this, new ContactsAdapter(this));
+        DbAdapter mDbHelper = ServiceLocator.getDbAdapter();
         Event event = mDbHelper.getEventById(getIntent().getLongExtra(DbAdapter.EVENT_ID, -1));
         List<Expense> expenses = event.getExpenses();
         List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();

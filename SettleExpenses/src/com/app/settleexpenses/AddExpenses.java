@@ -24,8 +24,8 @@ import android.widget.Toast;
 
 import com.app.settleexpenses.domain.Expense;
 import com.app.settleexpenses.domain.Participant;
-import com.app.settleexpenses.service.ContactsAdapter;
 import com.app.settleexpenses.service.DbAdapter;
+import com.app.settleexpenses.service.ServiceLocator;
 
 public class AddExpenses extends Activity {
 
@@ -36,9 +36,8 @@ public class AddExpenses extends Activity {
 	private EditText expenseAmount;
 
 	private final Activity currentActivity = this;
-	private final ContactsAdapter contacts = new ContactsAdapter(this);
 
-	protected boolean[] selections;
+    protected boolean[] selections;
 	protected boolean[] newSelections;
 	private ArrayList<String> allParticipantNames;
 	private List<Participant> allParticipants;
@@ -61,9 +60,9 @@ public class AddExpenses extends Activity {
 		Button calculateButton = (Button) findViewById(R.id.calculate);
 		Button addParticipantButton = (Button) findViewById(R.id.add_participant);
 
-		final long eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
-		DbAdapter dbAdapter = new DbAdapter(this, contacts);
-		allParticipants = dbAdapter.getEventById(eventId).getParticipants();
+        final long eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
+        DbAdapter dbAdapter = ServiceLocator.getDbAdapter();
+        allParticipants = dbAdapter.getEventById(eventId).getParticipants();
 		allParticipantNames = participantNames(allParticipants);
 
 		selections = new boolean[allParticipants.size()];
@@ -89,15 +88,13 @@ public class AddExpenses extends Activity {
 				if (isInValid())
 					return;
 
-				DbAdapter dbAdapter = new DbAdapter(view.getContext(), new ContactsAdapter(currentActivity));
-
-				float amount = Float.parseFloat(expenseAmount.getText().toString());
+                float amount = Float.parseFloat(expenseAmount.getText().toString());
 				ArrayList<Participant> participants = selectedParticipants();
 
 				Expense expense = new Expense(expenseTitleText.getText()
 						.toString(), amount, eventId, paidBy, participants);
 
-				dbAdapter.createExpense(expense);
+				ServiceLocator.getDbAdapter().createExpense(expense);
 				Toast toast = Toast.makeText(view.getContext(), getString(R.string.expense_created_successfully), 2);
 				toast.show();
 				finish();

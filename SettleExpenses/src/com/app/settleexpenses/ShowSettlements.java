@@ -13,8 +13,11 @@ import android.widget.SimpleAdapter;
 
 import com.app.settleexpenses.domain.Event;
 import com.app.settleexpenses.domain.Settlement;
+import com.app.settleexpenses.handler.ActionHandler;
+import com.app.settleexpenses.handler.ActivityTransitionActionHandler;
 import com.app.settleexpenses.service.ContactsAdapter;
 import com.app.settleexpenses.service.DbAdapter;
+import com.app.settleexpenses.service.ServiceLocator;
 
 public class ShowSettlements extends ListActivity {
 
@@ -32,7 +35,7 @@ public class ShowSettlements extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_settlements);
-        DbAdapter mDbHelper = new DbAdapter(this, new ContactsAdapter(this));
+        DbAdapter mDbHelper = ServiceLocator.getDbAdapter();
         eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
         Event event = mDbHelper.getEventById(eventId);
         List<Settlement> settlements = event.calculateSettlements();
@@ -59,18 +62,16 @@ public class ShowSettlements extends ListActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-        Class aClass = menuOptionHandler().get(item.getItemId());
-        if(aClass == null) return false;
-        Intent intent = new Intent(this, aClass);
-        intent.putExtra(DbAdapter.EVENT_ID, eventId);
-        startActivityForResult(intent, 1);
+        ActionHandler handler = menuOptionHandler().get(item.getItemId());
+        if(handler == null) return false;
+        handler.execute();
 		return false;
 	}
 
-    private HashMap<Integer, Class> menuOptionHandler() {
-        HashMap<Integer, Class> menuOptionResult = new HashMap<Integer, Class>();
-        menuOptionResult.put(SEND_SMS, SendSMS.class);
-        menuOptionResult.put(SEND_EMAIL, SendEmail.class);
+    private HashMap<Integer, ActionHandler> menuOptionHandler() {
+        HashMap<Integer, ActionHandler> menuOptionResult = new HashMap<Integer, ActionHandler>();
+        menuOptionResult.put(SEND_SMS, new ActivityTransitionActionHandler(this, SendSMS.class, eventId));
+        menuOptionResult.put(SEND_EMAIL, new ActivityTransitionActionHandler(this, SendEmail.class, eventId));
         return menuOptionResult;
     }
 

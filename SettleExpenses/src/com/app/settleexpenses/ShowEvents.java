@@ -1,8 +1,5 @@
 package com.app.settleexpenses;
 
-import com.app.settleexpenses.service.ContactsAdapter;
-import com.app.settleexpenses.service.DbAdapter;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -13,12 +10,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.Toast;
+import com.app.settleexpenses.handler.ActionHandler;
+import com.app.settleexpenses.handler.ActivityTransitionActionHandler;
+import com.app.settleexpenses.handler.DeleteEventActionHandler;
+import com.app.settleexpenses.service.ContactsAdapter;
+import com.app.settleexpenses.service.DbAdapter;
+import com.app.settleexpenses.service.ServiceLocator;
+
+import java.util.HashMap;
 
 public class ShowEvents extends ListActivity {
     private static final int ACTIVITY_CREATE = 0;
 
-    private Activity currentActivity = this;
     private DbAdapter mDbHelper;
 
     @Override
@@ -29,7 +32,7 @@ public class ShowEvents extends ListActivity {
         View header = getLayoutInflater().inflate(R.layout.event_add_button, getListView(), false);
         getListView().addHeaderView(header);
 
-        mDbHelper = new DbAdapter(this, new ContactsAdapter(this));
+        mDbHelper = ServiceLocator.getDbAdapter();
         fillData();
     }
 
@@ -39,7 +42,7 @@ public class ShowEvents extends ListActivity {
     }
 
     private void fillData() {
-    	mDbHelper.open();
+        mDbHelper.open();
         Cursor c = mDbHelper.fetchAllEvents();
         startManagingCursor(c);
 
@@ -60,33 +63,26 @@ public class ShowEvents extends ListActivity {
         builder.setTitle("Events");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int item) {
-                switch (item) {
-                    case 0:
-                        Intent showSettlementIntent = new Intent(currentActivity, ShowSettlements.class);
-                        showSettlementIntent.putExtra(DbAdapter.EVENT_ID, eventId);
-                        startActivityForResult(showSettlementIntent, 1);
-                        break;
-                    case 1:
-                        Intent editEventIntent = new Intent(currentActivity, CreateEvent.class);
-                        editEventIntent.putExtra(DbAdapter.EVENT_ID, eventId);
-                        startActivityForResult(editEventIntent, ACTIVITY_CREATE);
-                        break;
-                    case 2:
-                        Intent showExpensesIntent = new Intent(currentActivity, ShowExpenses.class);
-                        showExpensesIntent.putExtra(DbAdapter.EVENT_ID, eventId);
-                        startActivityForResult(showExpensesIntent, ACTIVITY_CREATE);
-                        break;
-                    case 3:
-                        mDbHelper.deleteEvent(eventId);
-                        Toast.makeText(getApplicationContext(), getString(R.string.event_deleted), Toast.LENGTH_SHORT).show();
-                        fillData();
-                        break;
+                ActionHandler handler = menuOptionHandler(eventId).get(item);
+                handler.execute();
+
+                if (item == 3) {
+                    fillData();
                 }
 
             }
         });
         AlertDialog alert = builder.create();
         alert.show();
+    }
+
+    private HashMap<Integer, ActionHandler> menuOptionHandler(long eventId) {
+        HashMap<Integer, ActionHandler> menuOptionResult = new HashMap<Integer, ActionHandler>();
+        menuOptionResult.put(0, new ActivityTransitionActionHandler(this, ShowSettlements.class, eventId));
+        menuOptionResult.put(1, new ActivityTransitionActionHandler(this, CreateEvent.class, eventId));
+        menuOptionResult.put(2, new ActivityTransitionActionHandler(this, ShowExpenses.class, eventId));
+        menuOptionResult.put(3, new DeleteEventActionHandler(this, eventId));
+        return menuOptionResult;
     }
 
     @Override

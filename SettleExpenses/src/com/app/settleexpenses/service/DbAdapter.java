@@ -68,9 +68,6 @@ public class DbAdapter {
         this.contactsProvider = contactsProvider;
     }
 
-    public DbAdapter() {
-    }
-
     public DbAdapter open() throws SQLException {
         mDbHelper = new DatabaseHelper(mCtx);
         mDb = mDbHelper.getReadableDatabase();
