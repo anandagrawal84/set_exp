@@ -1,6 +1,7 @@
 package com.app.settleexpenses;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import android.app.Activity;
@@ -13,6 +14,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -24,6 +27,8 @@ import android.widget.Toast;
 
 import com.app.settleexpenses.domain.Expense;
 import com.app.settleexpenses.domain.Participant;
+import com.app.settleexpenses.handler.ActionHandler;
+import com.app.settleexpenses.handler.ActivityTransitionActionHandler;
 import com.app.settleexpenses.service.DbAdapter;
 import com.app.settleexpenses.service.IDbAdapter;
 import com.app.settleexpenses.service.ServiceLocator;
@@ -32,12 +37,15 @@ public class AddExpenses extends Activity {
 
 	private static final int PICK_CONTACT = 0;
 	private static final int PICK_PAID_BY = 1;
+	private static final int SHOW_EXPENSES = 1;
+	private static final int SHOW_SETTLEMENTS = 5;
 
 	private EditText expenseTitleText;
 	private EditText expenseAmount;
 
 	private final Activity currentActivity = this;
 
+	private long eventId;
     protected boolean[] selections;
 	protected boolean[] newSelections;
 	private ArrayList<String> allParticipantNames;
@@ -58,10 +66,9 @@ public class AddExpenses extends Activity {
 		expenseAmount = (EditText) findViewById(R.id.amount);
 
 		Button confirmButton = (Button) findViewById(R.id.confirm);
-		Button calculateButton = (Button) findViewById(R.id.calculate);
 		Button addParticipantButton = (Button) findViewById(R.id.add_participant);
 
-        final long eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
+        eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
         IDbAdapter dbAdapter = ServiceLocator.getDbAdapter();
         allParticipants = dbAdapter.getEventById(eventId).getParticipants();
 		allParticipantNames = participantNames(allParticipants);
@@ -119,18 +126,8 @@ public class AddExpenses extends Activity {
 				startActivityForResult(intent, PICK_PAID_BY);
 			}
 		});
-
-		calculateButton.setOnClickListener(new View.OnClickListener() {
-
-			public void onClick(View view) {
-				Intent addExpensesIntent = new Intent(view.getContext(),
-						ShowSettlements.class);
-				addExpensesIntent.putExtra(DbAdapter.EVENT_ID, eventId);
-				startActivityForResult(addExpensesIntent, 1);
-			}
-		});
 	}
-
+	
 	private boolean isInValid() {
 		if (isInValid(expenseTitleText.getText().toString())
 				|| isInValid(expenseAmount.getText().toString())) {
@@ -280,4 +277,27 @@ public class AddExpenses extends Activity {
 		}
 		return null;
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(0, SHOW_EXPENSES, 0, getString(R.string.view_expenses));
+        menu.add(0, SHOW_SETTLEMENTS, 0, getString(R.string.show_settlements));
+        return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+        ActionHandler handler = menuOptionHandler().get(item.getItemId());
+        if(handler == null) return false;
+        handler.execute();
+		return false;
+	}
+
+    private HashMap<Integer, ActionHandler> menuOptionHandler() {
+        HashMap<Integer, ActionHandler> menuOptionResult = new HashMap<Integer, ActionHandler>();
+        menuOptionResult.put(SHOW_EXPENSES, new ActivityTransitionActionHandler(this, ShowExpenses.class, eventId));
+        menuOptionResult.put(SHOW_SETTLEMENTS, new ActivityTransitionActionHandler(this, ShowSettlements.class, eventId));
+        return menuOptionResult;
+    }
+
 }

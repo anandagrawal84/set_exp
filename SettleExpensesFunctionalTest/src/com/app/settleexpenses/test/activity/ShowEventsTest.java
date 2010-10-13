@@ -17,7 +17,7 @@ public class ShowEventsTest extends ActivityInstrumentationTestCase2<ShowEvents>
 		super("com.app.settleexpenses", ShowEvents.class);
 	}
 	
-	public void testSomething() {
+	public void testShouldDisplayEventNamesInListView() {
 		IDbAdapter dbAdapterMock = PowerMock.createMock(IDbAdapter.class);
 		EasyMock.expect(dbAdapterMock.open()).andReturn(dbAdapterMock);
 		EasyMock.expect(dbAdapterMock.fetchAllEvents()).andReturn(new StubCursor(new String[] {"Delhi", "Pune"}));

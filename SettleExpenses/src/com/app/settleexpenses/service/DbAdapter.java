@@ -51,9 +51,6 @@ public class DbAdapter implements IDbAdapter {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-//            db.execSQL("DROP TABLE IF EXISTS events");
-//            db.execSQL("DROP TABLE IF EXISTS expenses");
-//            db.execSQL("DROP TABLE IF EXISTS participants");
             onCreate(db);
         }
     }
@@ -71,36 +68,24 @@ public class DbAdapter implements IDbAdapter {
     public DbAdapter() {
     }
     
-    /* (non-Javadoc)
-	 * @see com.app.settleexpenses.service.IDbAdapter#open()
-	 */
     public DbAdapter open() throws SQLException {
         mDbHelper = new DatabaseHelper(mCtx);
         mDb = mDbHelper.getReadableDatabase();
         return this;
     }
 
-    /* (non-Javadoc)
-	 * @see com.app.settleexpenses.service.IDbAdapter#openWritable()
-	 */
     public IDbAdapter openWritable() throws SQLException {
         mDbHelper = new DatabaseHelper(mCtx);
         mDb = mDbHelper.getWritableDatabase();
         return this;
     }
 
-    /* (non-Javadoc)
-	 * @see com.app.settleexpenses.service.IDbAdapter#close()
-	 */
     public boolean close() {
         mDbHelper.close();
         return true;
     }
 
 
-    /* (non-Javadoc)
-	 * @see com.app.settleexpenses.service.IDbAdapter#createOrUpdateEvent(long, java.lang.String)
-	 */
     public long createOrUpdateEvent(long eventId, String title) {
         openWritable();
         try {
@@ -116,9 +101,6 @@ public class DbAdapter implements IDbAdapter {
         return eventId;
     }
 
-    /* (non-Javadoc)
-	 * @see com.app.settleexpenses.service.IDbAdapter#deleteEvent(long)
-	 */
     public boolean deleteEvent(long rowId) {
         openWritable();
         try {
@@ -136,16 +118,10 @@ public class DbAdapter implements IDbAdapter {
         }
     }
 
-    /* (non-Javadoc)
-	 * @see com.app.settleexpenses.service.IDbAdapter#fetchAllEvents()
-	 */
     public Cursor fetchAllEvents() {
         return mDb.query("events", new String[]{EVENT_ID, EVENT_TITLE}, null, null, null, null, null);
     }
 
-    /* (non-Javadoc)
-	 * @see com.app.settleexpenses.service.IDbAdapter#getEventById(long)
-	 */
     public Event getEventById(long eventId) {
         open();
         Cursor cursor = null;

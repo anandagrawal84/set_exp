@@ -85,7 +85,5 @@
               android:padding="5px"/>
         <Button android:id="@+id/confirm"
                 android:text="Create"/>
-        <Button android:id="@+id/calculate"
-                android:text="Show final Settlements"/>
     </TableLayout>
 </ScrollView>
