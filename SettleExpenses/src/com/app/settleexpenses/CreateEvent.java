@@ -23,11 +23,11 @@ public class CreateEvent extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_event);
-        setTitle(getString(R.string.create_event));
 
         titleText = (EditText) findViewById(R.id.title);
         final long eventId = getIntent().getLongExtra(DbAdapter.EVENT_ID, -1);
         titleText.setText(eventTitle(eventId));
+        setTitle(getString(eventId == -1 ? R.string.create_event : R.string.edit_event));
 
         Button confirmButton = (Button) findViewById(R.id.confirm);
 

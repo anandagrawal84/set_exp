@@ -43,7 +43,7 @@
                       android:text="Paid by"/>
             <Button android:id="@+id/paid_by"
                     android:layout_weight="1"
-                    android:text="(Required)"/>
+                    android:text="@string/hint_required_field"/>
         </TableRow>
 
         <View android:layout_height="2dip"
