@@ -23,6 +23,7 @@
     <string name="edit_participants">Edit Participants</string>
     <string name="send_sms">Send SMS</string>
     <string name="send_email">Send Email</string>
+    <string name="send_to_all">Send to All</string>
     <string name="exit">Exit</string>
 
     <!-- validation messages -->

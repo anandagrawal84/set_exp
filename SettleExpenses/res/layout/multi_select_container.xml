@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
     <Button android:layout_width="fill_parent"
         android:layout_height="wrap_content" android:id="@+id/send_to_all"
-        android:text="Send to all" android:layout_alignParentBottom="true" />
+        android:text="@string/send_to_all" android:layout_alignParentBottom="true" />
     <ListView android:id="@id/android:list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
