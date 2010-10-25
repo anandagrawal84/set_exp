@@ -13,7 +13,7 @@
                    android:layout_gravity="right"
                    android:paddingTop="9dip"/>
         <TextView android:layout_column="1"
-                android:text="Add an event"
+                android:text="@string/menu_insert"
                 android:gravity="left"
                 android:padding="8px"
                 android:textColor="#FFFFFF"

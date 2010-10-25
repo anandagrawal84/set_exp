@@ -75,7 +75,7 @@
                 <Button android:id="@+id/edit_participants"
                         android:text="Pick previously added"/>
                 <Button android:id="@+id/add_participant"
-                        android:text="Add Participants"/>
+                        android:text="@string/add_participants"/>
             </TableRow>
         </TableLayout>
 
@@ -84,6 +84,6 @@
               android:background="#FF909090"
               android:padding="5px"/>
         <Button android:id="@+id/confirm"
-                android:text="Create"/>
+                android:text="@string/create_expense"/>
     </TableLayout>
 </ScrollView>
