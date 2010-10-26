@@ -15,7 +15,7 @@ public class ExpenseTest extends TestCase {
 		ArrayList<Participant> participants = new ArrayList<Participant>();
 		participants.add(paidBy);
 		participants.add(participant);
-		Expense expense = new Expense("Expense 1", 300, 10, paidBy, participants);
+		Expense expense = new Expense(-1, "Expense 1", 300, 10, paidBy, participants);
 		assertEquals(-150.0, expense.contributionAmount(participant));
     }
     
@@ -25,7 +25,7 @@ public class ExpenseTest extends TestCase {
 		ArrayList<Participant> participants = new ArrayList<Participant>();
 		participants.add(paidBy);
 		participants.add(participant);
-		Expense expense = new Expense("Expense 1", 300, 10, paidBy, participants);
+		Expense expense = new Expense(-1, "Expense 1", 300, 10, paidBy, participants);
 		assertEquals(150.0, expense.contributionAmount(paidBy));
     }
     
@@ -34,7 +34,7 @@ public class ExpenseTest extends TestCase {
     	Participant participant = new Participant("3", "Participant1");
 		ArrayList<Participant> participants = new ArrayList<Participant>();
 		participants.add(participant);
-		Expense expense = new Expense("Expense 1", 300, 10, paidBy, participants);
+		Expense expense = new Expense(-1, "Expense 1", 300, 10, paidBy, participants);
 		assertEquals(-300.0, expense.contributionAmount(participant));
     }
     
@@ -43,7 +43,7 @@ public class ExpenseTest extends TestCase {
     	Participant participant = new Participant("3", "Participant1");
 		ArrayList<Participant> participants = new ArrayList<Participant>();
 		participants.add(participant);
-		Expense expense = new Expense("Expense 1", 300, 10, paidBy, participants);
+		Expense expense = new Expense(-1, "Expense 1", 300, 10, paidBy, participants);
 		assertEquals(300.0, expense.contributionAmount(paidBy));
     }
 }

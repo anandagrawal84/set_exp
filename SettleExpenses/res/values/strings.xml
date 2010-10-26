@@ -7,6 +7,7 @@
     <string name="sms_sent_successfully">SMS sent to contact.</string>
     <string name="sms_sent_to_all">SMS sent to all contacts.</string>
     <string name="event_deleted">Event is deleted.</string>
+    <string name="expense_deleted">Expense is deleted.</string>
 
     <!-- Titles -->
     <string name="create_event" >Create Event</string>
@@ -18,8 +19,9 @@
     <string name="edit_event">Edit Event</string>
     <string name="create_expense">Create Expense</string>
     <string name="view_expenses">View Expenses</string>
+    <string name="delete_expense">Delete Expense</string>
     <string name="delete_event">Delete Event</string>
-    <string name="add_participants">Add Participants</string>    
+    <string name="add_participants">Add Participants</string>
     <string name="edit_participants">Edit Participants</string>
     <string name="send_sms">Send SMS</string>
     <string name="send_email">Send Email</string>

@@ -9,6 +9,8 @@ import com.app.settleexpenses.service.DbAdapter;
 
 public class Expense {
 
+    private long id;
+
 	private String title;
 	private double amount;
 	private long eventId;
@@ -16,9 +18,10 @@ public class Expense {
 	private Participant paidBy;
 	private ArrayList<Participant> participants;
 
-	public Expense(String title, double amount, long eventId,
-			Participant paidBy, ArrayList<Participant> participants) {
-		this.title = title;
+	public Expense(long id, String title, double amount, long eventId,
+                   Participant paidBy, ArrayList<Participant> participants) {
+        this.id = id;
+        this.title = title;
 		this.amount = amount;
 		this.eventId = eventId;
 		this.paidBy = paidBy;
@@ -29,6 +32,9 @@ public class Expense {
 		return participants;
 	}
 
+    public long getId() {
+        return id;
+    }
 
 	public ArrayList<Participant> participantsWithPayer() {
 		if(isPayerPartOfExpense()) {

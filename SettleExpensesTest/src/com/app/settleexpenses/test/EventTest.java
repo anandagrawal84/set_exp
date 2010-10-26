@@ -20,8 +20,8 @@ public class EventTest extends TestCase {
 		ArrayList<Participant> participants = new ArrayList<Participant>();
 		participants.add(p1);
 		participants.add(p2);
-		expenses.add(new Expense("1", 300, 1, p1, participants));
-		expenses.add(new Expense("1", 300, 1, p2, participants));
+		expenses.add(new Expense(-1, "1", 300, 1, p1, participants));
+		expenses.add(new Expense(-1, "1", 300, 1, p2, participants));
 		Event event = new Event(1, "Title", expenses);
 		assertEquals(2, event.getParticipants().size());
 	}
@@ -33,8 +33,8 @@ public class EventTest extends TestCase {
 		ArrayList<Participant> participants = new ArrayList<Participant>();
 		participants.add(p1);
 		participants.add(p2);
-		expenses.add(new Expense("1", 300, 1, p1, participants));
-		expenses.add(new Expense("1", 300, 1, p2, participants));
+		expenses.add(new Expense(-1, "1", 300, 1, p1, participants));
+		expenses.add(new Expense(-1, "1", 300, 1, p2, participants));
 		Event event = new Event(1, "Title", expenses);
 		assertEquals(0, event.calculateSettlements().size());
 	}
@@ -46,7 +46,7 @@ public class EventTest extends TestCase {
 		ArrayList<Participant> participants = new ArrayList<Participant>();
 		participants.add(p1);
 		participants.add(p2);
-		expenses.add(new Expense("1", 300, 1, p1, participants));
+		expenses.add(new Expense(-1, "1", 300, 1, p1, participants));
 		Event event = new Event(1, "Title", expenses);
 		List<Settlement> settlements = event.calculateSettlements();
 		assertEquals(1, settlements.size());
@@ -61,7 +61,7 @@ public class EventTest extends TestCase {
 		Participant p2 = new Participant("134", "asdf");
 		ArrayList<Participant> participants = new ArrayList<Participant>();
 		participants.add(p2);
-		expenses.add(new Expense("1", 300, 1, p1, participants));
+		expenses.add(new Expense(-1, "1", 300, 1, p1, participants));
 		Event event = new Event(1, "Title", expenses);
 		List<Settlement> settlements = event.calculateSettlements();
 		assertEquals(1, settlements.size());
@@ -79,14 +79,14 @@ public class EventTest extends TestCase {
 		participants.add(anand);
 		participants.add(sunit);
 		participants.add(chandan);
-		expenses.add(new Expense("lunch", 600, 1, sunit, participants));
-		expenses.add(new Expense("chokhi dhani", 1050, 1, sunit, participants));
-		expenses.add(new Expense("cab", 1800, 1, sunit, participants));
-		expenses.add(new Expense("cab", 1000, 1, anand, participants));
-		expenses.add(new Expense("cab", 1000, 1, chandan, participants));
-		expenses.add(new Expense("ge", 200, 1, anand, participants));
-		expenses.add(new Expense("ge", 600, 1, chandan, participants));
-		expenses.add(new Expense("ge", 500, 1, sunit, participants));
+		expenses.add(new Expense(-1, "lunch", 600, 1, sunit, participants));
+		expenses.add(new Expense(-1, "chokhi dhani", 1050, 1, sunit, participants));
+		expenses.add(new Expense(-1, "cab", 1800, 1, sunit, participants));
+		expenses.add(new Expense(-1, "cab", 1000, 1, anand, participants));
+		expenses.add(new Expense(-1, "cab", 1000, 1, chandan, participants));
+		expenses.add(new Expense(-1, "ge", 200, 1, anand, participants));
+		expenses.add(new Expense(-1, "ge", 600, 1, chandan, participants));
+		expenses.add(new Expense(-1, "ge", 500, 1, sunit, participants));
 		
 		Event event = new Event(1, "Title", expenses);
 		List<Settlement> settlements = event.calculateSettlements();
@@ -111,22 +111,22 @@ public class EventTest extends TestCase {
 		participants.add(anand);
 		participants.add(selva);
 		participants.add(chandan);
-		expenses.add(new Expense("lunch", 185, 1, chandan, participants));
-		expenses.add(new Expense("lunch", 160, 1, selva, participants));
+		expenses.add(new Expense(-1, "lunch", 185, 1, chandan, participants));
+		expenses.add(new Expense(-1, "lunch", 160, 1, selva, participants));
 		
 		participants = new ArrayList<Participant>();
 		participants.add(anand);
 		participants.add(selva);
 		participants.add(chandan);
 		participants.add(sapto);
-		expenses.add(new Expense("cab", 205, 1, sapto, participants));
-		expenses.add(new Expense("cab", 250, 1, sapto, participants));
+		expenses.add(new Expense(-1, "cab", 205, 1, sapto, participants));
+		expenses.add(new Expense(-1, "cab", 250, 1, sapto, participants));
 		
 		participants = new ArrayList<Participant>();
 		participants.add(selva);
 		participants.add(chandan);
 		participants.add(sapto);
-		expenses.add(new Expense("dinner", 855, 1, sapto, participants));
+		expenses.add(new Expense(-1, "dinner", 855, 1, sapto, participants));
 		
 		Event event = new Event(1, "Title", expenses);
 		List<Settlement> settlements = event.calculateSettlements();
@@ -151,14 +151,14 @@ public class EventTest extends TestCase {
 		Participant sapto = new Participant("134", "sapto");
 		Participant selva = new Participant("144", "selva");
 		
-		expenses.add(new Expense("lunch", 500, 1, sapto, new ArrayList<Participant>(Arrays.asList(new Participant[] {anand, selva}))));
+		expenses.add(new Expense(-1, "lunch", 500, 1, sapto, new ArrayList<Participant>(Arrays.asList(new Participant[] {anand, selva}))));
 		
 		Participant ankit = new Participant("12adf", "ankit");
 		Participant abhas = new Participant("1343", "abhas");
 		Participant arti = new Participant("1442", "arti");
 		Participant amit = new Participant("1441", "amit");
 		
-		expenses.add(new Expense("lunch", 1000, 1, ankit, new ArrayList<Participant>(Arrays.asList(new Participant[] {abhas, arti, amit}))));
+		expenses.add(new Expense(-1, "lunch", 1000, 1, ankit, new ArrayList<Participant>(Arrays.asList(new Participant[] {abhas, arti, amit}))));
 		
 		Event event = new Event(1, "Title", expenses);
 		List<Settlement> settlements = event.calculateSettlements();
@@ -192,7 +192,7 @@ public class EventTest extends TestCase {
 		Participant sapto = new Participant("134", "sapto");
 		Participant selva = new Participant("144", "selva");
 		
-		expenses.add(new Expense("lunch", 500, 1, anand, new ArrayList<Participant>(Arrays.asList(new Participant[] {anand, sapto, selva}))));
+		expenses.add(new Expense(-1, "lunch", 500, 1, anand, new ArrayList<Participant>(Arrays.asList(new Participant[] {anand, sapto, selva}))));
 		Event event = new Event(1, "Title", expenses);
 		List<Settlement> settlements = event.calculateSettlements();
 		

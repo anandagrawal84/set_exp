@@ -36,7 +36,7 @@ public class ShowExpensesTest extends ActivityInstrumentationTestCase2<ShowExpen
 
 	private Event eventWithOneExpense() {
 		List<Expense> expenses = new ArrayList<Expense>();
-		expenses.add(new Expense("drinks", 1000, -1, new Participant("1", "Anand"), new ArrayList<Participant>()));
+		expenses.add(new Expense(1, "drinks", 1000, -1, new Participant("1", "Anand"), new ArrayList<Participant>()));
 		Event event = new Event(1, "Outing", expenses);
 		return event;
 	}

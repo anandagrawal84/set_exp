@@ -16,7 +16,9 @@ public interface IDbAdapter {
 
 	long createOrUpdateEvent(long eventId, String title);
 
-	boolean deleteEvent(long rowId);
+	boolean deleteEvent(long eventId);
+
+    boolean deleteExpense(long expenseId);
 
 	Cursor fetchAllEvents();
 

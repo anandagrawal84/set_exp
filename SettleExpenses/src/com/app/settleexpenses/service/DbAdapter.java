@@ -101,10 +101,10 @@ public class DbAdapter implements IDbAdapter {
         return eventId;
     }
 
-    public boolean deleteEvent(long rowId) {
+    public boolean deleteEvent(long eventId) {
         openWritable();
         try {
-        	Cursor cursor = mDb.query("expenses", null, EXPENSE_EVENT_ID + "=" + rowId, null, null, null, null);
+        	Cursor cursor = mDb.query("expenses", null, EXPENSE_EVENT_ID + "=" + eventId, null, null, null, null);
             if (cursor.moveToFirst()) {
                 do {
                 	int expenseId = cursor.getInt(0);
@@ -112,7 +112,16 @@ public class DbAdapter implements IDbAdapter {
                     mDb.delete("expenses", EXPENSE_ID + "=" + expenseId, null);
                 } while (cursor.moveToNext());
             }
-            return mDb.delete("events", EVENT_ID + " = " + rowId, null) > 0;
+            return mDb.delete("events", EVENT_ID + " = " + eventId, null) > 0;
+        } finally {
+            close();
+        }
+    }
+
+    public boolean deleteExpense(long expenseId) {
+        openWritable();
+        try {
+        	return mDb.delete("expenses", EXPENSE_ID + "=" + expenseId, null) > 0;
         } finally {
             close();
         }
@@ -142,7 +151,7 @@ public class DbAdapter implements IDbAdapter {
             do {
                 Participant paidBy = contactsProvider.find(cursor.getString(1));
                 ArrayList<Participant> participants = getParticipantsByExpenseId(cursor.getInt(0));
-                expenses.add(new Expense(cursor.getString(4), cursor.getFloat(2), eventId, paidBy, participants));
+                expenses.add(new Expense(cursor.getLong(0), cursor.getString(4), cursor.getFloat(2), eventId, paidBy, participants));
             } while (cursor.moveToNext());
         }
         cursor.close();

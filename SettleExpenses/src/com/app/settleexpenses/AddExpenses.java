@@ -99,7 +99,7 @@ public class AddExpenses extends Activity {
                 float amount = Float.parseFloat(expenseAmount.getText().toString());
 				ArrayList<Participant> participants = selectedParticipants();
 
-				Expense expense = new Expense(expenseTitleText.getText()
+				Expense expense = new Expense(-1, expenseTitleText.getText()
 						.toString(), amount, eventId, paidBy, participants);
 
 				ServiceLocator.getDbAdapter().createExpense(expense);
